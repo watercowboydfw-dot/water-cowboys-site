@@ -120,12 +120,15 @@ export default async (req: Request, context: Context) => {
     if (payload.zip) leadCustomFields[`custom.${FIELD.leadZip}`] = payload.zip;
     if (typeof payload.gpg === "number")
       leadCustomFields[`custom.${FIELD.leadGpg}`] = payload.gpg;
-    if (payload.source)
-      leadCustomFields[`custom.${FIELD.leadSource}`] = payload.source;
+    // NOTE: Lead Source is a strict dropdown in Close with pre-configured
+    // choices that don't match our internal source tags (e.g. "main-site-gate"
+    // fails with "not a valid choice"). Rather than guess the exact configured
+    // values, source is logged in the free-text description below instead.
 
     const lead = await closeRequest(apiKey, "POST", "/lead/", {
       name: leadName,
       status_id: LEAD_STATUS_NEW,
+      description: payload.source ? `Source: ${payload.source}` : undefined,
       ...leadCustomFields,
     });
 
@@ -165,8 +168,12 @@ export default async (req: Request, context: Context) => {
     } else if (payload.note) {
       // No package selected, but there's context worth logging
       // (e.g. a requested callback day/time from the booking widget).
+      // Combine with the source tag already set, rather than overwrite it.
+      const combinedDescription = payload.source
+        ? `Source: ${payload.source} — ${payload.note}`
+        : payload.note;
       await closeRequest(apiKey, "POST", "/lead/" + lead.id + "/", {
-        description: payload.note,
+        description: combinedDescription,
       }).catch(() => {
         // Non-fatal — the lead and contact already exist either way.
       });
