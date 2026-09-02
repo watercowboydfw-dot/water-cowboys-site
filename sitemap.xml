@@ -14,37 +14,37 @@
   </url>
 
   <url>
-    <loc>https://www.watercowboys.com/areas/fort-worth.html</loc>
+    <loc>https://www.watercowboys.com/area-fort-worth.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.watercowboys.com/blog/</loc>
+    <loc>https://www.watercowboys.com/blog-index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.watercowboys.com/blog/hard-water-by-county.html</loc>
+    <loc>https://www.watercowboys.com/blog-hard-water-by-county.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://www.watercowboys.com/blog/softener-cost-dfw.html</loc>
+    <loc>https://www.watercowboys.com/blog-softener-cost-dfw.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://www.watercowboys.com/blog/signs-of-hard-water.html</loc>
+    <loc>https://www.watercowboys.com/blog-signs-of-hard-water.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://www.watercowboys.com/blog/free-test-sales-tactic.html</loc>
+    <loc>https://www.watercowboys.com/blog-free-test-sales-tactic.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

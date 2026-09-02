@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Check Your DFW Water Hardness | Water Cowboys</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Free 15-second water hardness check for Dallas-Fort Worth. No home visit required.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Ccircle cx='15' cy='15' r='13' fill='%23F5F6F4' stroke='%232C5872' stroke-width='2'/%3E%3Cpath d='M15 6 L17.2 12.2 L23.8 12.2 L18.5 16 L20.5 22.2 L15 18.4 L9.5 22.2 L11.5 16 L6.2 12.2 L12.8 12.2 Z' fill='%239C5A2A'/%3E%3C/svg%3E">
+<!-- ============================================================
+     AD TRACKING — CONSENT-GATED. Do not load unconditionally.
+     Current CA CIPA case law (2026) targets pixels that fire
+     before consent — see main site notes for detail. Only loads
+     after the visitor clicks Accept on the consent banner.
+     TODO: replace G-XXXXXXXXXX / XXXXXXXXXXXXXXX with real IDs.
+     ============================================================ -->
+<script>
+  function loadGoogleTag() {
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX";
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){ dataLayer.push(arguments); };
+    gtag("js", new Date());
+    gtag("config", "G-XXXXXXXXXX");
+  }
+  function loadMetaPixel() {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,"script","https://connect.facebook.net/en_US/fbevents.js");
+    fbq("init", "XXXXXXXXXXXXXXX");
+    fbq("track", "PageView");
+  }
+  function acceptTracking() {
+    localStorage.setItem("wc_tracking_consent", "accepted");
+    document.getElementById("consentBanner").classList.remove("show");
+    loadGoogleTag();
+    loadMetaPixel();
+  }
+  function declineTracking() {
+    localStorage.setItem("wc_tracking_consent", "declined");
+    document.getElementById("consentBanner").classList.remove("show");
+  }
+  function initConsentBanner() {
+    var choice = localStorage.getItem("wc_tracking_consent");
+    if (choice === "accepted") { loadGoogleTag(); loadMetaPixel(); }
+    else if (choice !== "declined") { document.getElementById("consentBanner").classList.add("show"); }
+  }
+</script>
+<style>
+  :root {
+    --ink: #16232A; --slate: #435868; --denim: #2C5872; --denim-dark: #17324A;
+    --leather: #9C5A2A; --leather-dark: #7A4520; --paper: #F5F6F4; --paper-dim: #EBEDE9;
+    --line: rgba(23,38,43,0.14); --white: #FFFFFF; --good: #3D6644; --danger: #B3261E;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); font-family: 'Inter', sans-serif; line-height: 1.55; }
+  .wrap { max-width: 620px; margin: 0 auto; padding: 0 24px; }
+  h1, h2 { font-family: 'Fraunces', serif; font-weight: 700; letter-spacing: -0.01em; }
+
+  header { padding: 22px 0; text-align: center; }
+  .logo { display: inline-flex; align-items: center; gap: 10px; font-family: 'Fraunces', serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
+  .logo-mark { width: 28px; height: 28px; }
+  .logo-mark svg { width: 100%; height: 100%; }
+
+  .hero { padding: 20px 0 10px; text-align: center; }
+  h1 { font-size: clamp(28px, 5vw, 38px); line-height: 1.08; margin-bottom: 14px; }
+  .hero p.sub { font-size: 16px; color: var(--slate); max-width: 460px; margin: 0 auto; }
+
+  .trust-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 20px 0 28px; }
+  .trust-item { font-size: 12.5px; font-weight: 600; color: var(--ink); background: var(--paper-dim); border: 1px solid var(--line); padding: 6px 12px; border-radius: 100px; }
+
+  .panel {
+    background: var(--white); border: 1px solid var(--line); border-radius: 10px;
+    padding: 28px; box-shadow: 0 2px 12px rgba(23,38,43,0.06);
+  }
+  .zip-row { display: flex; gap: 10px; }
+  input[type="text"] {
+    flex: 1; font-family: 'IBM Plex Mono', monospace; font-size: 19px; letter-spacing: 0.04em;
+    padding: 14px 16px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); color: var(--ink); outline: none;
+  }
+  input[type="text"]:focus { border-color: var(--denim); }
+  button.go {
+    font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px; padding: 14px 22px;
+    background: var(--denim); color: var(--white); border: none; border-radius: 6px; cursor: pointer;
+  }
+  button.go:hover { background: var(--denim-dark); }
+  .hint { margin-top: 10px; font-size: 12.5px; color: var(--slate); text-align: center; }
+
+  .gate { margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--line); display: none; }
+  .gate.show { display: block; }
+  .gate-copy { font-size: 14.5px; color: var(--slate); margin-bottom: 16px; text-align: center; }
+  .gate-field { margin-bottom: 12px; }
+  .gate-field label { display: block; font-size: 12.5px; color: var(--slate); margin-bottom: 6px; }
+  input.gate-input { width: 100%; font-family: 'Inter', sans-serif; font-size: 15px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); color: var(--ink); outline: none; }
+  input.gate-input:focus { border-color: var(--denim); }
+  .gate-or { font-size: 12px; color: var(--slate); text-align: center; margin: 4px 0 10px; opacity: 0.7; }
+  .gate-error { display: none; font-size: 12.5px; color: var(--danger); margin-bottom: 10px; text-align: center; }
+  .gate-error.show { display: block; }
+  button.gate-submit { width: 100%; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px; padding: 14px; border-radius: 6px; border: none; cursor: pointer; background: var(--leather); color: var(--white); }
+  button.gate-submit:hover { background: var(--leather-dark); }
+
+  .result { display: none; margin-top: 24px; }
+  .result.show { display: block; }
+  .readout { display: flex; align-items: center; gap: 18px; padding: 18px; border-radius: 8px; border: 1px solid var(--line); background: var(--paper-dim); }
+  .readout.danger { background: #FBEAE8; border-color: rgba(179,38,30,0.3); }
+  .gpg-num { font-family: 'IBM Plex Mono', monospace; font-size: 32px; color: var(--leather-dark); }
+  .readout.danger .gpg-num { color: var(--danger); }
+  .readout-label { font-size: 13px; font-weight: 700; color: var(--slate); }
+  .readout.danger .readout-label { color: var(--danger); }
+  .cta-final { display: block; text-align: center; margin-top: 20px; background: var(--leather); color: var(--white); text-decoration: none; font-weight: 700; padding: 15px; border-radius: 6px; font-size: 15.5px; }
+  .cta-final:hover { background: var(--leather-dark); }
+
+  footer { text-align: center; padding: 30px 0; font-size: 12.5px; color: var(--slate); }
+
+  .consent-banner { display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 200; background: var(--denim-dark, #17324A); box-shadow: 0 -4px 20px rgba(23,38,43,0.2); }
+  .consent-banner.show { display: block; }
+  .consent-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 20px; flex-wrap: wrap; max-width: 700px; margin: 0 auto; }
+  .consent-inner p { color: #C9D6DC; font-size: 12.5px; margin: 0; }
+  .consent-inner p a { color: #fff; text-decoration: underline; }
+  .consent-buttons { display: flex; gap: 8px; flex-shrink: 0; }
+  .consent-decline { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 8px 14px; border-radius: 6px; font-size: 12.5px; font-weight: 600; cursor: pointer; font-family: inherit; }
+  .consent-accept { background: var(--leather, #9C5A2A); border: none; color: #fff; padding: 8px 16px; border-radius: 6px; font-size: 12.5px; font-weight: 700; cursor: pointer; font-family: inherit; }
+</style>
+</head>
+<body>
+<div class="consent-banner" id="consentBanner">
+  <div class="consent-inner">
+    <p>We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By clicking "Accept," you consent to our use of cookies. See our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+    <div class="consent-buttons">
+      <button class="consent-decline" onclick="declineTracking()">Decline</button>
+      <button class="consent-accept" onclick="acceptTracking()">Accept</button>
+    </div>
+  </div>
+</div>
+
+
+<header>
+  <div class="wrap">
+    <a href="#" class="logo">
+      <span class="logo-mark"><svg viewBox="0 0 30 30" fill="none"><circle cx="15" cy="15" r="13" stroke="#2C5872" stroke-width="2"/><path d="M15 6 L17.2 12.2 L23.8 12.2 L18.5 16 L20.5 22.2 L15 18.4 L9.5 22.2 L11.5 16 L6.2 12.2 L12.8 12.2 Z" fill="#9C5A2A"/></svg></span>
+      Water Cowboys
+    </a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="hero">
+    <h1>Check your DFW water hardness in 15 seconds</h1>
+    <p class="sub">Public utility data, not a home visit. See your exact number, free.</p>
+  </div>
+
+  <div class="trust-row">
+    <span class="trust-item">No home sales visit</span>
+    <span class="trust-item">Licensed &amp; insured</span>
+    <span class="trust-item">Flat-rate pricing</span>
+  </div>
+
+  <div class="panel">
+    <div class="zip-row">
+      <input type="text" id="zipInput" maxlength="5" placeholder="Enter your ZIP" inputmode="numeric" aria-label="Your ZIP code">
+      <button class="go" onclick="openGate()">Check now</button>
+    </div>
+    <div class="hint" id="zipHint">Covers Dallas, Tarrant, Collin, Denton &amp; 6 more counties</div>
+
+    <div class="gate" id="gateBlock">
+      <div class="gate-copy">Enter a phone or email to see your result.</div>
+      <div class="gate-error" id="gateError">Enter a phone number or email to continue.</div>
+      <div class="gate-field"><label for="gatePhone">Phone</label><input type="text" class="gate-input" id="gatePhone" placeholder="(214) 555-0123" inputmode="tel"></div>
+      <div class="gate-or">or</div>
+      <div class="gate-field"><label for="gateEmail">Email</label><input type="text" class="gate-input" id="gateEmail" placeholder="you@email.com" inputmode="email"></div>
+      <button class="gate-submit" onclick="submitGate()">Show my result</button>
+    </div>
+
+    <div class="result" id="resultBlock">
+      <div class="readout" id="readoutCard">
+        <div>
+          <div class="gpg-num"><span id="gpgVal">0</span> gpg</div>
+          <div class="readout-label" id="hardLabel">—</div>
+        </div>
+      </div>
+      <a href="water-cowboys.html#pricing" class="cta-final">See flat-rate pricing</a>
+    </div>
+  </div>
+</div>
+
+<footer>Water Cowboys · Dallas-Fort Worth, TX · (214) 555-0199 · <a href="privacy-policy.html" style="color:inherit;">Privacy Policy</a></footer>
+
+<script>
+  function isValidPhone(phone) {
+    const digits = (phone || '').replace(/\D/g, '');
+    return digits.length === 10 || (digits.length === 11 && digits[0] === '1');
+  }
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test((email || '').trim());
+  }
+  const data = {
+    // Dallas (Dallas Water Utilities)
+    "75201":{city:"Dallas",gpg:11},"75202":{city:"Dallas",gpg:11},"75203":{city:"Dallas",gpg:11},
+    "75204":{city:"Dallas",gpg:11},"75205":{city:"Dallas",gpg:12},"75206":{city:"Dallas",gpg:11},
+    "75207":{city:"Dallas",gpg:11},"75208":{city:"Dallas",gpg:11},"75209":{city:"Dallas",gpg:12},
+    "75210":{city:"Dallas",gpg:11},"75211":{city:"Dallas",gpg:11},"75212":{city:"Dallas",gpg:11},
+    "75214":{city:"Dallas",gpg:12},"75215":{city:"Dallas",gpg:11},"75216":{city:"Dallas",gpg:11},
+    "75217":{city:"Dallas",gpg:11},"75218":{city:"Dallas",gpg:12},"75219":{city:"Dallas",gpg:12},
+    "75220":{city:"Dallas",gpg:12},"75223":{city:"Dallas",gpg:11},"75224":{city:"Dallas",gpg:11},
+    "75225":{city:"Dallas",gpg:12},"75226":{city:"Dallas",gpg:11},"75227":{city:"Dallas",gpg:11},
+    "75228":{city:"Dallas",gpg:11},"75229":{city:"Dallas",gpg:12},"75230":{city:"Dallas",gpg:12},
+    "75231":{city:"Dallas",gpg:12},"75232":{city:"Dallas",gpg:11},"75233":{city:"Dallas",gpg:11},
+    "75234":{city:"Dallas / Farmers Branch",gpg:12},"75235":{city:"Dallas",gpg:12},
+    "75236":{city:"Dallas",gpg:11},"75237":{city:"Dallas",gpg:11},"75238":{city:"Dallas",gpg:12},
+    "75240":{city:"Dallas",gpg:12},"75241":{city:"Dallas",gpg:11},"75242":{city:"Dallas",gpg:11},
+    "75243":{city:"Dallas",gpg:12},"75244":{city:"Dallas / Farmers Branch",gpg:12},
+    "75245":{city:"Dallas",gpg:12},"75246":{city:"Dallas",gpg:11},"75247":{city:"Dallas",gpg:11},
+    "75248":{city:"Dallas / Far North",gpg:13},"75249":{city:"Dallas",gpg:11},
+    "75251":{city:"Dallas",gpg:12},"75252":{city:"Dallas",gpg:13},"75253":{city:"Dallas",gpg:11},
+    "75254":{city:"Dallas",gpg:12},"75270":{city:"Dallas",gpg:11},"75287":{city:"Dallas",gpg:13},
+    "75398":{city:"Dallas",gpg:11},
+    // Addison / Cedar Hill / DeSoto / Duncanville / Glenn Heights / Grand Prairie / Hutchins / Lancaster / Seagoville / Wilmer (Dallas Water Utilities customers)
+    "75001":{city:"Addison",gpg:12},"75104":{city:"Cedar Hill",gpg:12},"75115":{city:"DeSoto",gpg:12},
+    "75116":{city:"Duncanville",gpg:12},"75137":{city:"Duncanville",gpg:12},
+    "75154":{city:"Glenn Heights",gpg:12},"75050":{city:"Grand Prairie",gpg:12},
+    "75051":{city:"Grand Prairie",gpg:12},"75052":{city:"Grand Prairie",gpg:12},
+    "75054":{city:"Grand Prairie",gpg:12},"75141":{city:"Hutchins",gpg:12},
+    "75134":{city:"Lancaster",gpg:12},"75146":{city:"Lancaster",gpg:12},
+    "75159":{city:"Seagoville",gpg:12},"75172":{city:"Wilmer",gpg:12},
+    // Irving (Dallas Water Utilities / Irving system)
+    "75038":{city:"Irving",gpg:12},"75039":{city:"Irving",gpg:12},"75060":{city:"Irving",gpg:12},
+    "75061":{city:"Irving",gpg:12},"75062":{city:"Irving",gpg:12},"75063":{city:"Irving",gpg:12},
+    // Coppell
+    "75019":{city:"Coppell",gpg:12},"75099":{city:"Coppell",gpg:12},
+    // Richardson (Dallas Water Utilities)
+    "75080":{city:"Richardson",gpg:12},"75081":{city:"Richardson",gpg:12},
+    "75082":{city:"Richardson",gpg:12},
+    // Mesquite / Balch Springs / Sunnyvale (mixed Dallas/NTMWD, use blended figure)
+    "75149":{city:"Mesquite",gpg:13},"75150":{city:"Mesquite",gpg:13},
+    "75180":{city:"Mesquite / Balch Springs",gpg:13},"75181":{city:"Mesquite",gpg:13},
+    "75182":{city:"Sunnyvale",gpg:13},
+    // Garland / Rowlett / Sachse (North Texas Municipal Water District)
+    "75040":{city:"Garland",gpg:13},"75041":{city:"Garland",gpg:13},"75042":{city:"Garland",gpg:13},
+    "75043":{city:"Garland",gpg:13},"75044":{city:"Garland",gpg:13},"75048":{city:"Garland / Sachse",gpg:14},
+    "75088":{city:"Rowlett",gpg:14},"75089":{city:"Rowlett",gpg:14},
+
+    // Collin County — North Texas Municipal Water District
+    "75023":{city:"Plano",gpg:14},"75024":{city:"Plano",gpg:14},"75025":{city:"Plano",gpg:14},
+    "75074":{city:"Plano",gpg:14},"75075":{city:"Plano",gpg:14},"75093":{city:"Plano",gpg:14},
+    "75094":{city:"Plano / Murphy",gpg:14},"75002":{city:"Allen",gpg:14},"75013":{city:"Allen",gpg:14},
+    "75033":{city:"Frisco",gpg:15},"75034":{city:"Frisco",gpg:15},"75035":{city:"Frisco",gpg:15},
+    "75036":{city:"Frisco",gpg:15},"75069":{city:"McKinney",gpg:15},"75070":{city:"McKinney",gpg:15},
+    "75071":{city:"McKinney",gpg:15},"75072":{city:"McKinney",gpg:15},"75098":{city:"Wylie",gpg:14},
+    "75078":{city:"Prosper",gpg:15},"75009":{city:"Celina",gpg:15},"75409":{city:"Anna",gpg:15},
+    "75454":{city:"Melissa",gpg:15},"75407":{city:"Princeton",gpg:15},"75424":{city:"Blue Ridge",gpg:15},
+    "75442":{city:"Farmersville",gpg:15},"75173":{city:"Nevada",gpg:15},"75164":{city:"Josephine",gpg:15},
+    "75166":{city:"Lavon",gpg:15},
+
+    // Denton County — City of Denton + Upper Trinity Regional Water District
+    "76201":{city:"Denton",gpg:16},"76205":{city:"Denton",gpg:16},"76207":{city:"Denton",gpg:16},
+    "76208":{city:"Denton",gpg:16},"76209":{city:"Denton",gpg:16},"76210":{city:"Denton",gpg:16},
+    "75007":{city:"Carrollton",gpg:13},"75010":{city:"Carrollton",gpg:13},
+    "75056":{city:"The Colony / Lewisville",gpg:15},"75057":{city:"Lewisville",gpg:15},
+    "75065":{city:"Lake Dallas / Hickory Creek",gpg:15},"75067":{city:"Lewisville",gpg:15},
+    "75077":{city:"Lewisville / Flower Mound",gpg:15},"75022":{city:"Flower Mound",gpg:15},
+    "75028":{city:"Flower Mound",gpg:15},"75068":{city:"Little Elm",gpg:15},
+    "76227":{city:"Aubrey / Providence Village",gpg:16},"76226":{city:"Argyle",gpg:15},
+    "76247":{city:"Justin",gpg:15},"76262":{city:"Roanoke / Trophy Club",gpg:15},
+    "76266":{city:"Sanger",gpg:16},"76249":{city:"Krum",gpg:16},"76259":{city:"Ponder",gpg:16},
+    "76258":{city:"Pilot Point",gpg:16},
+
+    // Tarrant County — Fort Worth Water
+    "76102":{city:"Fort Worth",gpg:10},"76103":{city:"Fort Worth",gpg:10},"76104":{city:"Fort Worth",gpg:10},
+    "76105":{city:"Fort Worth",gpg:10},"76106":{city:"Fort Worth",gpg:10},"76107":{city:"Fort Worth",gpg:10},
+    "76108":{city:"White Settlement",gpg:10},"76109":{city:"Fort Worth",gpg:10},"76110":{city:"Fort Worth",gpg:10},
+    "76111":{city:"Fort Worth",gpg:10},"76112":{city:"Fort Worth",gpg:10},"76114":{city:"River Oaks / Fort Worth",gpg:10},
+    "76115":{city:"Fort Worth",gpg:10},"76116":{city:"Fort Worth",gpg:10},"76118":{city:"Fort Worth",gpg:10},
+    "76119":{city:"Forest Hill / Fort Worth",gpg:10},"76120":{city:"Fort Worth",gpg:10},"76123":{city:"Fort Worth",gpg:10},
+    "76126":{city:"Benbrook",gpg:10},"76129":{city:"Fort Worth",gpg:10},"76131":{city:"Fort Worth / Saginaw",gpg:10},
+    "76132":{city:"Fort Worth",gpg:10},"76133":{city:"Fort Worth",gpg:10},"76134":{city:"Edgecliff Village / Fort Worth",gpg:10},
+    "76135":{city:"Fort Worth",gpg:10},"76136":{city:"Fort Worth",gpg:10},"76137":{city:"Fort Worth",gpg:10},
+    "76140":{city:"Everman / Fort Worth",gpg:10},"76164":{city:"Fort Worth",gpg:10},"76177":{city:"Fort Worth",gpg:10},
+    "76179":{city:"Fort Worth / Saginaw",gpg:10},"76244":{city:"Keller / Fort Worth",gpg:11},
+    "76052":{city:"Haslet",gpg:10},
+
+    // Arlington
+    "76001":{city:"Arlington",gpg:13},"76002":{city:"Arlington",gpg:13},"76006":{city:"Arlington",gpg:13},
+    "76010":{city:"Arlington",gpg:13},"76011":{city:"Arlington",gpg:13},"76012":{city:"Arlington",gpg:13},
+    "76013":{city:"Arlington",gpg:13},"76014":{city:"Arlington",gpg:13},"76015":{city:"Arlington",gpg:13},
+    "76016":{city:"Arlington",gpg:13},"76017":{city:"Arlington",gpg:13},"76018":{city:"Arlington",gpg:13},
+
+    // Mid-Cities (Trinity River Authority blend)
+    "76051":{city:"Grapevine",gpg:11},"76039":{city:"Euless",gpg:11},"76040":{city:"Euless",gpg:11},
+    "76021":{city:"Bedford",gpg:11},"76022":{city:"Bedford",gpg:11},"76053":{city:"Hurst",gpg:11},
+    "76054":{city:"Hurst",gpg:11},"76180":{city:"North Richland Hills",gpg:11},"76182":{city:"North Richland Hills",gpg:11},
+    "76117":{city:"Haltom City",gpg:11},"76148":{city:"Watauga",gpg:11},"76092":{city:"Southlake",gpg:11},
+    "76034":{city:"Colleyville",gpg:11},"76248":{city:"Keller",gpg:11},
+
+    // Southern Tarrant
+    "76063":{city:"Mansfield",gpg:12},"76028":{city:"Burleson",gpg:12},"76036":{city:"Crowley",gpg:12},
+    "76060":{city:"Kennedale",gpg:12},
+
+    // Ellis County (south of Dallas — Waxahachie, Red Oak, Ennis area)
+    "75165":{city:"Waxahachie",gpg:13},"75167":{city:"Waxahachie",gpg:13},
+    "75119":{city:"Ennis",gpg:13},"75125":{city:"Ferris",gpg:13},"75152":{city:"Palmer",gpg:13},
+
+    // Kaufman County (east of Dallas — Terrell, Forney)
+    "75126":{city:"Forney / Heartland / Heath",gpg:14},"75142":{city:"Kaufman",gpg:14},
+    "75160":{city:"Terrell",gpg:14},"75161":{city:"Terrell",gpg:14},"75114":{city:"Crandall",gpg:14},
+    "75158":{city:"Scurry",gpg:14},
+
+    // Rockwall County (northeast — North Texas Municipal Water District)
+    "75032":{city:"Rockwall / Fate / Heath",gpg:15},"75087":{city:"Rockwall / Fate",gpg:15},
+    "75189":{city:"Royse City / Fate",gpg:15},
+
+    // Johnson County (south of Fort Worth — Cleburne, Burleson, Joshua)
+    "76031":{city:"Cleburne",gpg:12},"76033":{city:"Cleburne",gpg:12},"76044":{city:"Cleburne / Godley",gpg:12},
+    "76058":{city:"Burleson / Joshua / Keene",gpg:12},"76009":{city:"Alvarado / Keene",gpg:12},
+    "76059":{city:"Keene",gpg:12},"76050":{city:"Grandview / Parker",gpg:12},"76084":{city:"Venus",gpg:12},
+
+    // Parker County (west of Fort Worth — Weatherford, Aledo)
+    "76008":{city:"Aledo / Willow Park",gpg:12},"76085":{city:"Weatherford",gpg:12},
+    "76086":{city:"Weatherford",gpg:12},"76087":{city:"Weatherford / Hudson Oaks",gpg:12},
+    "76088":{city:"Weatherford / Cool",gpg:12},"76082":{city:"Springtown / Reno",gpg:12},
+    "76020":{city:"Azle / Briar",gpg:12},"76023":{city:"Briar",gpg:12},"76066":{city:"Millsap",gpg:12},
+
+    // Wise County (northwest — Decatur, Rhome, Bridgeport)
+    "76234":{city:"Decatur",gpg:13},"76078":{city:"Rhome",gpg:13},"76071":{city:"Newark",gpg:13},
+    "76426":{city:"Bridgeport",gpg:13}
+  };
+
+  function classify(gpg) {
+    if (gpg < 1) return { label: "Soft", danger: false };
+    if (gpg < 3.5) return { label: "Slightly hard", danger: false };
+    if (gpg < 7) return { label: "Moderately hard", danger: false };
+    if (gpg < 10.5) return { label: "Hard", danger: true };
+    return { label: "Very hard", danger: true };
+  }
+
+  function openGate() {
+    const zip = document.getElementById('zipInput').value.trim();
+    if (!/^\d{5}$/.test(zip)) {
+      document.getElementById('zipHint').textContent = "Enter a 5-digit ZIP code first.";
+      return;
+    }
+    document.getElementById('gateBlock').classList.add('show');
+  }
+
+  function submitGate() {
+    const phone = document.getElementById('gatePhone').value.trim();
+    const email = document.getElementById('gateEmail').value.trim();
+    const errorEl = document.getElementById('gateError');
+    const phoneEntered = phone.length > 0;
+    const emailEntered = email.length > 0;
+    const phoneValid = isValidPhone(phone);
+    const emailValid = isValidEmail(email);
+    if (!phoneEntered && !emailEntered) {
+      errorEl.textContent = 'Enter a phone number or email to continue.';
+      errorEl.classList.add('show');
+      return;
+    }
+    if (!phoneValid && !emailValid) {
+      errorEl.textContent = "That doesn't look like a valid phone number or email.";
+      errorEl.classList.add('show');
+      return;
+    }
+    errorEl.classList.remove('show');
+    if (typeof gtag === 'function') gtag('event', 'zip_tool_completed', { variant: 'A_control', method: phoneValid ? 'phone' : 'email' });
+    if (typeof fbq === 'function') fbq('trackCustom', 'ZipToolCompleted', { variant: 'A_control' });
+    const zipForSubmit = document.getElementById('zipInput').value.trim();
+    fetch('/api/submit-lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ phone, email, zip: zipForSubmit, source: 'landing-a-control' })
+    }).catch(function(err) { console.error('Lead submission failed:', err); });
+    document.getElementById('gateBlock').classList.remove('show');
+    revealResult();
+  }
+
+  function revealResult() {
+    const zip = document.getElementById('zipInput').value.trim();
+    const entry = data[zip] || { city: "DFW Metro (estimated)", gpg: 13 };
+    const result = classify(entry.gpg);
+    document.getElementById('gpgVal').textContent = entry.gpg;
+    document.getElementById('hardLabel').textContent = result.label + " water";
+    document.getElementById('readoutCard').classList.toggle('danger', result.danger);
+    document.getElementById('resultBlock').classList.add('show');
+  }
+
+  initConsentBanner();
+  document.getElementById('zipInput').addEventListener('keydown', function(e) { if (e.key === 'Enter') openGate(); });
+</script>
+
+</body>
+</html>
