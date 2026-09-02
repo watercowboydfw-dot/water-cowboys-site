@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Water Cowboys | Flat-Rate Water Softeners & Filtration in Dallas-Fort Worth, TX</title>
-<meta name="description" content="Flat-rate water softener and filtration installs across Dallas-Fort Worth. Check your water's hardness by ZIP code, see 4 flat prices, and talk to a real expert &#8212; no in-home sales visit, ever.">
+<title>Water Cowboys | Flat-Rate Water Softeners, Dallas-Fort Worth</title>
+<meta name="description" content="Flat-rate water softener installs in Dallas-Fort Worth. Check your ZIP's hardness, see 4 flat prices, talk to a real expert — no in-home sales visit.">
 <link rel="canonical" href="https://www.watercowboys.com/">
 
 <meta property="og:type" content="website">
@@ -62,36 +65,126 @@
 }
 </script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's the actual difference between a softener, a filter, and an RO system?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A softener removes the hardness minerals (calcium and magnesium) that cause scale buildup and dry skin — it treats your whole house. A carbon filter removes chlorine taste and smell, also whole-house. A reverse osmosis (RO) system is a separate, more thorough filter just for drinking and cooking water at one faucet. Most homes only need a softener; the other two are add-ons if taste or drinking water quality matter to you too."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why don't you offer a free in-home water test?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because it's usually a sales visit, not a real test. City water hardness is already public record — we use that plus a short quiz to size your system accurately without putting a rep in your kitchen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the price on this page really the final price?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Each package is a flat, installed price that includes standard permitting and code-required parts like backflow preventers. The only thing that changes it is choosing a different package."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a softener if I already have decent water pressure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hardness and pressure aren't related — hardness is mineral content, not flow. Most DFW ZIP codes run 10+ grains per gallon, which is enough to scale fixtures and appliances over time regardless of pressure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does install take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Essential and Complete are typically same-day, a few hours. Ultimate is a full-day job since it covers both the utility room and kitchen — we'll confirm timing when you book."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you service well water, not just city water?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our packages above are built around city water in DFW. If you're on a private well, give us a call — well water often needs additional iron or sediment treatment beyond these packages."
+      }
+    }
+  ]
+}
+</script>
+
 <!-- ============================================================
-     AD TRACKING — Google Ads + Meta Pixel
+     AD TRACKING — Google Ads + Meta Pixel, CONSENT-GATED
      TODO before running ads: replace G-XXXXXXXXXX with the real
      Google Ads/GA4 Measurement ID, and XXXXXXXXXXXXXXX with the
      real Meta Pixel ID. Both are found in the respective ad
-     account's settings once those accounts exist. Until replaced,
-     these scripts load but send no usable data.
+     account's settings once those accounts exist.
+
+     IMPORTANT — DO NOT remove the consent gate below. Current
+     California CIPA case law (2026) specifically targets pixels
+     that fire on page load BEFORE the visitor has a chance to
+     consent — this is the "pre-consent tracking" theory behind an
+     active wave of class-action lawsuits (real settlements have
+     hit $3.85M+). These scripts only load after a visitor clicks
+     "Accept" on the banner below. Do not make them load
+     unconditionally, even if it seems like it would "just work."
      ============================================================ -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
-<!-- Meta Pixel -->
-<script>
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-  document,'script','https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', 'XXXXXXXXXXXXXXX');
-  fbq('track', 'PageView');
+  function loadGoogleTag() {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){ dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  }
+  function loadMetaPixel() {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'XXXXXXXXXXXXXXX');
+    fbq('track', 'PageView');
+  }
+  function loadTrackingIfConsented() {
+    if (localStorage.getItem('wc_tracking_consent') === 'accepted') {
+      loadGoogleTag();
+      loadMetaPixel();
+    }
+  }
+  function acceptTracking() {
+    localStorage.setItem('wc_tracking_consent', 'accepted');
+    document.getElementById('consentBanner').classList.remove('show');
+    loadGoogleTag();
+    loadMetaPixel();
+  }
+  function declineTracking() {
+    localStorage.setItem('wc_tracking_consent', 'declined');
+    document.getElementById('consentBanner').classList.remove('show');
+  }
+  function initConsentBanner() {
+    var choice = localStorage.getItem('wc_tracking_consent');
+    if (choice === 'accepted') {
+      loadTrackingIfConsented();
+    } else if (choice !== 'declined') {
+      document.getElementById('consentBanner').classList.add('show');
+    }
+  }
 </script>
 
 <style>
-
-  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
 
   :root {
     --ink: #16232A;
@@ -104,7 +197,8 @@
     --paper-dim: #EBEDE9;
     --line: rgba(23,38,43,0.14);
     --white: #FFFFFF;
-    --good: #4C7A52;
+    --good: #3D6644;
+    --good-tint: #EAF1EB;
     --danger: #B3261E;
     --danger-dark: #8C1D17;
     --danger-tint: #FBEAE8;
@@ -152,6 +246,37 @@
     position: sticky; top: 0; z-index: 50;
   }
   header .wrap { display: flex; align-items: center; justify-content: space-between; padding: 16px 28px; }
+
+  /* CONSENT BANNER */
+  .consent-banner {
+    display: none;
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 200;
+    background: var(--denim-dark);
+    box-shadow: 0 -4px 20px rgba(23,38,43,0.2);
+  }
+  .consent-banner.show { display: block; }
+  .consent-inner {
+    display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    padding: 16px 28px;
+    flex-wrap: wrap;
+  }
+  .consent-inner p { color: #C9D6DC; font-size: 13.5px; max-width: 640px; margin: 0; }
+  .consent-inner p a { color: var(--white); text-decoration: underline; }
+  .consent-buttons { display: flex; gap: 10px; flex-shrink: 0; }
+  .consent-decline {
+    background: transparent; border: 1px solid rgba(255,255,255,0.3); color: var(--white);
+    padding: 9px 16px; border-radius: 6px; font-size: 13.5px; font-weight: 600; cursor: pointer;
+    font-family: 'Inter', sans-serif;
+  }
+  .consent-decline:hover { border-color: var(--white); }
+  .consent-accept {
+    background: var(--leather); border: none; color: var(--white);
+    padding: 9px 18px; border-radius: 6px; font-size: 13.5px; font-weight: 700; cursor: pointer;
+    font-family: 'Inter', sans-serif;
+  }
+  .consent-accept:hover { background: var(--leather-dark); }
+  @media (max-width: 640px) { .consent-inner { flex-direction: column; align-items: flex-start; } }
+
   .logo {
     display: flex; align-items: center; gap: 10px;
     font-family: 'Fraunces', serif;
@@ -185,7 +310,42 @@
   }
   .nav-cta:hover { background: var(--leather-dark); color: var(--white) !important; }
 
-  @media (max-width: 860px) { nav a:not(.nav-cta) { display: none; } }
+  @media (max-width: 860px) { nav { display: none; } }
+  header .wrap { gap: 14px; }
+
+  /* MOBILE NAV */
+  .hamburger {
+    display: none;
+    background: none; border: none; cursor: pointer;
+    width: 40px; height: 40px;
+    align-items: center; justify-content: center;
+    color: var(--ink);
+    flex-shrink: 0;
+  }
+  .hamburger svg { width: 24px; height: 24px; }
+  @media (max-width: 860px) { .hamburger { display: flex; } }
+
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    background: var(--white);
+    border-top: 1px solid var(--line);
+    padding: 8px 28px 20px;
+  }
+  .mobile-nav.show { display: flex; }
+  .mobile-nav a {
+    padding: 13px 0;
+    font-size: 15.5px; font-weight: 600; color: var(--slate);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+  }
+  .mobile-nav a:last-child { border-bottom: none; }
+  .mobile-nav a.nav-cta {
+    text-align: center;
+    margin-top: 12px;
+    border-bottom: none;
+    color: var(--white) !important;
+  }
 
   /* HERO */
   .hero { padding: 56px 0 64px; }
@@ -273,9 +433,8 @@
   @keyframes fade { from { opacity:0; transform: translateY(6px);} to {opacity:1; transform:translateY(0);} }
 
   .readout {
-    display: flex; align-items: center; gap: 20px;
-    padding: 16px; margin-top: 4px;
-    border-radius: 6px;
+    padding: 26px 24px 20px; margin-top: 4px;
+    border-radius: 8px;
     border: 1px solid var(--line);
     background: var(--paper-dim);
     transition: background 0.25s ease, border-color 0.25s ease;
@@ -289,16 +448,35 @@
     0%, 100% { box-shadow: 0 0 0 0 rgba(179,38,30,0.16); }
     50% { box-shadow: 0 0 0 6px rgba(179,38,30,0); }
   }
-  .gauge { flex-shrink: 0; }
-  .readout-text .city { font-family: 'Fraunces', serif; font-weight: 700; font-size: 19px; }
-  .readout-text .gpg { font-family: 'IBM Plex Mono', monospace; font-size: 30px; color: var(--leather-dark); margin-top: 2px; transition: color 0.25s ease; }
-  .readout.danger .gpg { color: var(--danger); }
-  .readout-text .desc { font-size: 13px; font-weight: 700; color: var(--slate); margin-top: 3px; letter-spacing: 0.01em; }
-  .readout.danger .desc { color: var(--danger-dark); }
-  .readout-text .desc .warn-icon { display: none; margin-right: 4px; }
-  .readout.danger .desc .warn-icon { display: inline; }
-  .readout-text .impact { font-size: 12.5px; color: var(--slate); margin-top: 6px; max-width: 320px; }
-  .readout.danger .impact { color: var(--danger-dark); }
+  .ba-row { display: flex; align-items: center; justify-content: center; gap: 26px; }
+  .ba-stat { text-align: center; flex: 1; max-width: 220px; }
+  .ba-label { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 13px; color: var(--slate); margin-bottom: 8px; }
+  .ba-num { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 46px; line-height: 1; color: var(--leather-dark); transition: color 0.25s ease; }
+  .readout.danger .ba-num:not(.ba-good) { color: var(--danger); }
+  .ba-num .ba-unit { font-size: 17px; font-weight: 500; margin-left: 4px; color: inherit; opacity: 0.75; }
+  .ba-num.ba-good { color: var(--good); }
+  .ba-tag { font-size: 13px; font-weight: 700; color: var(--slate); margin-top: 8px; letter-spacing: 0.01em; }
+  .readout.danger .ba-tag:not(.ba-good-tag) { color: var(--danger-dark); }
+  .ba-tag .warn-icon { display: none; margin-right: 4px; }
+  .readout.danger .ba-tag .warn-icon { display: inline; }
+  .ba-good-tag { color: var(--good); }
+  .ba-arrow { font-size: 26px; color: var(--slate); opacity: 0.5; flex-shrink: 0; }
+  .ba-city { text-align: center; font-size: 12.5px; color: var(--slate); opacity: 0.75; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); }
+  .danger-alert {
+    display: none;
+    align-items: center; gap: 10px;
+    background: var(--danger); color: var(--white);
+    padding: 13px 18px; border-radius: 6px;
+    margin-top: 16px;
+    font-weight: 700; font-size: 15px; line-height: 1.3;
+  }
+  .readout.danger .danger-alert { display: flex; }
+  .danger-alert-icon { font-size: 18px; flex-shrink: 0; }
+  @media (max-width: 560px) {
+    .ba-row { flex-direction: column; gap: 14px; }
+    .ba-arrow { transform: rotate(90deg); }
+    .ba-num { font-size: 38px; }
+  }
 
   /* SCALE BAR */
   .scale-wrap { margin-top: 18px; }
@@ -510,6 +688,15 @@
     0% { transform: scale(0.6); opacity: 1; }
     100% { transform: scale(1.8); opacity: 0; }
   }
+  .trust-photo-slot {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 2px solid var(--white);
+    box-shadow: 0 1px 4px rgba(23,38,43,0.15);
+  }
+  .trust-photo-slot svg { width: 100%; height: 100%; }
   .live-badge {
     display: inline-flex; align-items: center; gap: 7px;
     font-family: 'Inter', sans-serif;
@@ -733,12 +920,12 @@
   .faq-q .plus { font-family: 'IBM Plex Mono', monospace; color: var(--leather); font-size: 18px; transition: transform 0.2s ease; }
   .faq-item.open .plus { transform: rotate(45deg); }
   .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.25s ease; font-size: 14.5px; color: var(--slate); }
-  .faq-item.open .faq-a { max-height: 200px; margin-top: 12px; }
+  .faq-item.open .faq-a { max-height: 280px; margin-top: 12px; }
 
   /* FOOTER */
   footer { background: var(--denim-dark); color: var(--paper); padding: 48px 0 28px; }
   .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px; }
-  footer h4 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 14px; color: #C9D6DC; margin-bottom: 14px; }
+  footer h3 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 14px; color: #C9D6DC; margin-bottom: 14px; }
   footer .flogo { font-family: 'Fraunces', serif; font-weight: 800; font-size: 22px; color: var(--white); margin-bottom: 10px; }
   footer p.fdesc { font-size: 13.5px; color: #B9C7CD; max-width: 260px; }
   footer ul { list-style: none; }
@@ -839,6 +1026,59 @@
   .service-card .sc-link:hover { text-decoration: underline; }
   @media (max-width: 760px) { .service-grid { grid-template-columns: 1fr; } }
 
+  /* THE DAMAGE — 3-up pain-point cards */
+  .damage-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .damage-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .damage-card .photo-slot { height: 170px; border-radius: 0; border-left: none; border-right: none; border-top: none; }
+  .damage-card-body { padding: 20px 22px 22px; }
+  .damage-card h3 { font-size: 18px; color: var(--ink); margin-bottom: 8px; }
+  .damage-card p { font-size: 13.5px; color: var(--slate); }
+  @media (max-width: 900px) { .damage-grid { grid-template-columns: 1fr; } }
+
+  /* GUARANTEE */
+  #guarantee { padding: 32px 0 66px; border-top: none; }
+  .guarantee-box {
+    display: flex; align-items: flex-start; gap: 22px;
+    background: var(--denim-dark);
+    border-radius: 10px;
+    padding: 34px 38px;
+    color: var(--white);
+  }
+  .guarantee-icon {
+    width: 52px; height: 52px; flex-shrink: 0;
+    background: var(--leather);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .guarantee-icon svg { width: 26px; height: 26px; color: var(--white); }
+  .guarantee-text h2 { color: var(--white); font-size: clamp(22px, 3vw, 28px); margin-bottom: 10px; }
+  .guarantee-text p { color: #C9D6DC; font-size: 15px; max-width: 640px; }
+  @media (max-width: 640px) { .guarantee-box { flex-direction: column; padding: 26px; } }
+
+  /* IDEAL GPG CALLOUT (pricing section) */
+  .ideal-callout {
+    display: flex; align-items: center; gap: 26px;
+    background: var(--good-tint);
+    border: 1px solid rgba(76,122,82,0.25);
+    border-left: 4px solid var(--good);
+    border-radius: 10px;
+    padding: 26px 30px;
+    margin: 28px 0 40px;
+  }
+  .ideal-callout-num { text-align: center; flex-shrink: 0; width: 110px; }
+  .ideal-num { display: block; font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: 36px; color: var(--good); line-height: 1; }
+  .ideal-label { display: block; font-size: 12px; color: var(--slate); font-weight: 600; margin-top: 6px; }
+  .ideal-callout-text h3 { font-size: 17px; margin-bottom: 8px; color: var(--ink); }
+  .ideal-callout-text p { font-size: 14px; color: var(--slate); }
+  @media (max-width: 640px) { .ideal-callout { flex-direction: column; text-align: center; border-left: none; border-top: 4px solid var(--good); } }
+
   /* GALLERY */
   .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
   .gallery-grid .photo-slot { aspect-ratio: 4/3; }
@@ -898,8 +1138,18 @@
 
 <div class="topbar">
   <div class="wrap">
-    <a href="tel:+12145550199">(214) 555-0199 · Call or text</a>
+    <a href="tel:+12145550199">(214) 555-0199 · Call now</a>
     <span class="badge">Flat-rate pricing · No in-home sales visit</span>
+  </div>
+</div>
+
+<div class="consent-banner" id="consentBanner">
+  <div class="wrap consent-inner">
+    <p>We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By clicking "Accept," you consent to our use of cookies. See our <a href="privacy-policy.html">Privacy Policy</a> for details.</p>
+    <div class="consent-buttons">
+      <button class="consent-decline" onclick="declineTracking()">Decline</button>
+      <button class="consent-accept" onclick="acceptTracking()">Accept</button>
+    </div>
   </div>
 </div>
 
@@ -918,18 +1168,30 @@
       <a href="#process">Process</a>
       <a href="#pricing">Pricing</a>
       <a href="#services">Services</a>
+      <a href="how-it-works.html">How It Works</a>
       <a href="blog/index.html">Blog</a>
       <a href="#faq">FAQ</a>
-      <a href="#contact" class="nav-cta">Get My Water Report</a>
     </nav>
+    <a href="#contact" class="nav-cta" id="headerCta">Get My Water Report</a>
+    <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileNav()" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#process" onclick="toggleMobileNav()">Process</a>
+    <a href="#pricing" onclick="toggleMobileNav()">Pricing</a>
+    <a href="#services" onclick="toggleMobileNav()">Services</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="blog/index.html">Blog</a>
+    <a href="#faq" onclick="toggleMobileNav()">FAQ</a>
   </div>
 </header>
 
 <section class="hero" style="border-top:none;">
   <div class="wrap">
     <div class="hero-top">
-      <h1 class="headline">Straight talk on hard water. <span class="accent">Straight prices to fix it.</span></h1>
-      <p class="sub">Water Cowboys installs softeners, filtration, and drinking-water systems across Dallas–Fort Worth — priced flat before you ever pick up the phone. No in-home sales pitch, no negotiating in your kitchen.</p>
+      <h1 class="headline">Hard water is quietly wrecking your home. <span class="accent">We fix it, straight up.</span></h1>
+      <p class="sub">DFW water scales your water heater, dries out your skin, and leaves spots on everything. Water Cowboys fixes it with one flat price — no in-home sales pitch, no negotiating in your kitchen.</p>
       <div class="hero-flags">
         <span class="flag">No home sales visit</span>
         <span class="flag">4 flat-rate packages</span>
@@ -937,6 +1199,14 @@
       </div>
       <div style="margin-top: 20px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
         <a href="tel:+12145550199" class="nav-cta" style="display:inline-block; padding:13px 22px; font-size:14.5px;">Call a water expert now</a>
+        <div class="trust-photo-slot">
+          <!-- Custom illustration — swap for a real technician/team headshot when available -->
+          <svg viewBox="0 0 44 44" fill="none">
+            <circle cx="22" cy="22" r="22" fill="#EBEDE9"/>
+            <circle cx="22" cy="17" r="7" fill="#C88A55"/>
+            <path d="M22 26 C13 26 8 31 8 40 L36 40 C36 31 31 26 22 26 Z" fill="#2C5872"/>
+          </svg>
+        </div>
         <span class="live-badge"><span class="live-dot"></span>Someone's on call right now</span>
       </div>
     </div>
@@ -972,7 +1242,7 @@
       <div class="panel" id="zipToolPanel">
       <div class="panel-label">Check your water</div>
       <div class="zip-row">
-        <input type="text" id="zipInput" maxlength="5" placeholder="75201" inputmode="numeric">
+        <input type="text" id="zipInput" maxlength="5" placeholder="75201" inputmode="numeric" aria-label="Your ZIP code">
         <button class="go" onclick="openGate()">Check hardness</button>
       </div>
       <div class="hint" id="zipHint">Covers the full DFW metro — 45-mile radius, 10 counties</div>
@@ -984,13 +1254,18 @@
         </div>
         <div class="gate-copy">Enter a phone or email and we'll show your exact reading plus the flat-rate package built for your home.</div>
         <div class="gate-error" id="gateError">Enter a phone number or email to continue.</div>
+        <div class="gate-error" id="gateFormatError">That doesn't look like a valid phone number or email — double check it.</div>
         <div class="gate-field">
-          <label>Phone</label>
+          <label for="gateName">Name <span style="font-weight:400; opacity:0.65;">(optional)</span></label>
+          <input type="text" class="gate-input" id="gateName" placeholder="Jane Smith">
+        </div>
+        <div class="gate-field">
+          <label for="gatePhone">Phone</label>
           <input type="text" class="gate-input" id="gatePhone" placeholder="(214) 555-0123" inputmode="tel">
         </div>
         <div class="gate-or">or</div>
         <div class="gate-field">
-          <label>Email</label>
+          <label for="gateEmail">Email</label>
           <input type="text" class="gate-input" id="gateEmail" placeholder="you@email.com" inputmode="email">
         </div>
         <button class="gate-submit" onclick="submitGate()">Show my results</button>
@@ -1000,19 +1275,24 @@
 
       <div class="result" id="resultBlock">
         <div class="readout" id="readoutCard">
-          <svg class="gauge" width="78" height="78" viewBox="0 0 86 86">
-            <circle cx="43" cy="43" r="36" fill="none" stroke="#EDEBE3" stroke-width="8"/>
-            <circle id="gaugeArc" cx="43" cy="43" r="36" fill="none" stroke="#9C5A2A" stroke-width="8"
-                    stroke-linecap="round" stroke-dasharray="226" stroke-dashoffset="226"
-                    transform="rotate(-90 43 43)"/>
-            <text id="gaugeNum" x="43" y="48" text-anchor="middle" font-family="IBM Plex Mono" font-size="16" fill="#16232A">0</text>
-          </svg>
-          <div class="readout-text">
-            <div class="city" id="cityName">—</div>
-            <div class="gpg"><span id="gpgVal">0</span> gpg</div>
-            <div class="desc" id="hardDesc"><span class="warn-icon">⚠</span>grains per gallon, hardness classification</div>
-            <div class="impact" id="impactText"></div>
+          <div class="ba-row">
+            <div class="ba-stat">
+              <div class="ba-label">Your water, right now</div>
+              <div class="ba-num" id="gpgValWrap"><span id="gpgVal">0</span><span class="ba-unit">gpg</span></div>
+              <div class="ba-tag" id="hardDesc"><span class="warn-icon">⚠</span>—</div>
+            </div>
+            <div class="ba-arrow">→</div>
+            <div class="ba-stat ba-after">
+              <div class="ba-label">After Water Cowboys</div>
+              <div class="ba-num ba-good">&lt;1<span class="ba-unit">gpg</span></div>
+              <div class="ba-tag ba-good-tag">✓ Essentially soft</div>
+            </div>
           </div>
+          <div class="danger-alert">
+            <span class="danger-alert-icon">⚠</span>
+            <span>Your skin, your appliances, and your home are all under attack.</span>
+          </div>
+          <div class="ba-city" id="cityName"></div>
         </div>
 
         <div class="scale-wrap">
@@ -1047,7 +1327,7 @@
           <div class="panel-label" style="margin-top:4px;">Which package fits your home?</div>
           <div class="field-row">
             <div class="field">
-              <label>Household size</label>
+              <label for="household">Household size</label>
               <select id="household">
                 <option value="small">1–2 people</option>
                 <option value="mid" selected>3–4 people</option>
@@ -1055,7 +1335,7 @@
               </select>
             </div>
             <div class="field">
-              <label>Main concern</label>
+              <label for="concern">Main concern</label>
               <select id="concern">
                 <option value="soft">Hard water only</option>
                 <option value="taste" selected>Hard water + taste/smell</option>
@@ -1068,6 +1348,81 @@
       </div>
       <div class="panel-footnote">Your reading is pulled from your city's published water report — the same data a "free in-home test" would just be re-confirming.</div>
     </div>
+    </div>
+  </div>
+</section>
+
+<section id="the-damage">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Three things hard water is quietly ruining</h2>
+      <p>It doesn't happen all at once — it happens every shower, every load of laundry, every time your water heater kicks on. Here's exactly what's going on.</p>
+    </div>
+    <div class="damage-grid">
+
+      <div class="damage-card">
+        <!-- Custom illustration — swap for a real before/after skin or shower photo when available -->
+        <div class="photo-slot">
+          <svg class="photo-illustration" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="300" fill="#EBEDE9"/>
+            <path d="M200 60 C170 100 150 140 150 175 C150 210 172 235 200 235 C228 235 250 210 250 175 C250 140 230 100 200 60 Z" fill="#F5F6F4" stroke="#2C5872" stroke-width="4"/>
+            <g fill="#9C5A2A" opacity="0.55">
+              <circle cx="175" cy="150" r="4"/><circle cx="195" cy="170" r="4"/><circle cx="215" cy="155" r="4"/>
+              <circle cx="185" cy="195" r="4"/><circle cx="220" cy="190" r="4"/><circle cx="205" cy="210" r="4"/>
+              <circle cx="170" cy="180" r="4"/><circle cx="230" cy="170" r="4"/>
+            </g>
+            <text x="200" y="270" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#435868">Mineral film on skin</text>
+          </svg>
+        </div>
+        <div class="damage-card-body">
+          <h3>Your skin &amp; hair</h3>
+          <p>Hard water doesn't rinse soap and shampoo cleanly off your body — it leaves a mineral film behind instead. Over time that shows up as dry, itchy skin, dull or brittle hair, and soap that never quite feels like it worked.</p>
+        </div>
+      </div>
+
+      <div class="damage-card">
+        <!-- Custom illustration — swap for a real scaled water heater / appliance interior photo when available -->
+        <div class="photo-slot">
+          <svg class="photo-illustration" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="300" fill="#EBEDE9"/>
+            <rect x="150" y="60" width="100" height="190" rx="14" fill="#F5F6F4" stroke="#2C5872" stroke-width="4"/>
+            <rect x="160" y="130" width="80" height="110" rx="4" fill="#EDEBE3"/>
+            <g fill="#9C5A2A">
+              <circle cx="172" cy="145" r="4"/><circle cx="190" cy="155" r="4"/><circle cx="210" cy="148" r="4"/><circle cx="228" cy="160" r="4"/>
+              <circle cx="178" cy="170" r="4"/><circle cx="200" cy="178" r="4"/><circle cx="220" cy="172" r="4"/>
+              <circle cx="185" cy="195" r="4"/><circle cx="205" cy="200" r="4"/><circle cx="225" cy="192" r="4"/>
+              <circle cx="175" cy="220" r="4"/><circle cx="198" cy="225" r="4"/><circle cx="218" cy="218" r="4"/>
+            </g>
+            <text x="200" y="270" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#435868">Scale inside a water heater</text>
+          </svg>
+        </div>
+        <div class="damage-card-body">
+          <h3>Your appliances</h3>
+          <p>Every time hard water heats up, it leaves mineral scale behind — inside your water heater, dishwasher, washing machine, and coffee maker. That buildup makes them work harder, run less efficiently, and fail years before they should.</p>
+        </div>
+      </div>
+
+      <div class="damage-card">
+        <!-- Custom illustration — swap for a real cutaway/scaled pipe photo when available -->
+        <div class="photo-slot">
+          <svg class="photo-illustration" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="300" fill="#EBEDE9"/>
+            <rect x="60" y="130" width="280" height="40" rx="20" fill="#F5F6F4" stroke="#2C5872" stroke-width="4"/>
+            <rect x="80" y="140" width="240" height="20" rx="10" fill="#EDEBE3"/>
+            <g fill="#9C5A2A" opacity="0.75">
+              <circle cx="110" cy="150" r="5"/><circle cx="140" cy="148" r="4"/><circle cx="170" cy="152" r="5"/>
+              <circle cx="200" cy="147" r="4"/><circle cx="230" cy="151" r="5"/><circle cx="260" cy="149" r="4"/>
+              <circle cx="290" cy="152" r="5"/>
+            </g>
+            <text x="200" y="270" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#435868">Scale narrowing a pipe</text>
+          </svg>
+        </div>
+        <div class="damage-card-body">
+          <h3>Your pipes &amp; plumbing</h3>
+          <p>Scale doesn't just build up in appliances — it builds up inside your actual pipes. Narrower pipes mean lower water pressure, more strain on your plumbing, and a higher chance of an expensive repair down the road.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1126,16 +1481,27 @@
       <p>Every package below is a flat, all-in installed price — the same price whether your job takes three hours or five. What you see is what you pay.</p>
     </div>
 
+    <div class="ideal-callout">
+      <div class="ideal-callout-num">
+        <span class="ideal-num">0-2</span>
+        <span class="ideal-label">gpg is the real target</span>
+      </div>
+      <div class="ideal-callout-text">
+        <h3>Why we target under 1 gpg, not just "soft"</h3>
+        <p>Most water treatment companies stop once you're technically "soft" — under 3.5 gpg. We don't. Many dishwasher and tankless water heater <strong>manufacturers specify hardness limits directly in their warranty terms, often requiring under 7 gpg</strong> and voiding coverage above 10-12 gpg. At DFW's regional average of 12-13 gpg, a lot of homes are already operating outside those terms. Every system we install targets under 1 gpg — real margin, not just squeaking by.</p>
+      </div>
+    </div>
+
     <div class="price-grid">
       <div class="price-card" id="card-starter">
         <span class="rec-tag" id="rec-starter">Add-on pick</span>
         <div class="price-name">Starter</div>
-        <div class="price-tagline">Drinking water, point of use</div>
+        <div class="price-tagline">Drinking water at your kitchen sink</div>
         <div class="price-amount">$799<span class="flat-label">Flat rate, installed</span></div>
         <ul class="price-list">
-          <li>Under-sink reverse osmosis system</li>
-          <li>Dedicated RO faucet at the kitchen sink</li>
-          <li>No main line work — point of use only</li>
+          <li>Under-sink filter for drinking &amp; cooking water (reverse osmosis)</li>
+          <li>A separate faucet at your kitchen sink just for filtered water</li>
+          <li>Only treats this one faucet — no work on your home's main water line</li>
         </ul>
         <button class="price-cta" onclick="selectPackageAndScroll('Starter')">Book Starter</button>
         <a href="tel:+12145550199" class="price-alt-link">or call an expert now</a>
@@ -1147,9 +1513,9 @@
         <div class="price-tagline">Soft water, whole home</div>
         <div class="price-amount">$2,599<span class="flat-label">Flat rate, installed</span></div>
         <ul class="price-list">
-          <li>Whole-home water softener, main line entry</li>
-          <li>Bypass valve for lawn &amp; pool</li>
-          <li>Brine tank, salt fill &amp; regen cycle test</li>
+          <li>Softens every drop of water entering your home</li>
+          <li>A valve so your lawn and pool don't waste softened water</li>
+          <li>Includes the salt tank, first fill, and a full working test</li>
         </ul>
         <button class="price-cta" onclick="selectPackageAndScroll('Essential')">Book Essential</button>
         <a href="tel:+12145550199" class="price-alt-link">or call an expert now</a>
@@ -1162,9 +1528,9 @@
         <div class="price-tagline">Soft + clean water, whole home</div>
         <div class="price-amount">$3,999<span class="flat-label">Flat rate, installed</span></div>
         <ul class="price-list">
-          <li>Whole-home softener + bypass valve</li>
-          <li>Whole-home catalytic carbon tank — removes chlorine/chloramine taste &amp; smell</li>
-          <li>Backflow preventer, code-compliant</li>
+          <li>Whole-home softener, same as Essential</li>
+          <li>Removes the chlorine taste and smell from every tap in the house</li>
+          <li>Required backflow safety valve, included and code-compliant</li>
         </ul>
         <button class="price-cta" onclick="selectPackageAndScroll('Complete')">Book Complete</button>
         <a href="tel:+12145550199" class="price-alt-link">or call an expert now</a>
@@ -1176,8 +1542,8 @@
         <div class="price-tagline">Whole home + drinking water</div>
         <div class="price-amount">$4,499<span class="flat-label">Flat rate, installed</span></div>
         <ul class="price-list">
-          <li>Everything in Complete: softener + carbon + backflow preventer</li>
-          <li>Under-sink reverse osmosis at the kitchen sink</li>
+          <li>Everything in Complete — soft water, better taste, safety valve</li>
+          <li>Filtered drinking water at the kitchen sink too</li>
           <li>Full-day install, both utility room &amp; kitchen</li>
         </ul>
         <button class="price-cta" onclick="selectPackageAndScroll('Ultimate')">Book Ultimate</button>
@@ -1188,6 +1554,20 @@
     <div class="flat-note">
       <svg viewBox="0 0 20 20" fill="none"><path d="M10 2 L17 5.5 V10 C17 14 14 17.5 10 18.5 C6 17.5 3 14 3 10 V5.5 Z" fill="currentColor"/></svg>
       Flat-rate guarantee: the price on this page is the price on your invoice. Permits and code-required parts for your package are already built in.
+    </div>
+  </div>
+</section>
+
+<section id="guarantee">
+  <div class="wrap">
+    <div class="guarantee-box">
+      <div class="guarantee-icon">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M10 2 L17 5.5 V10 C17 14 14 17.5 10 18.5 C6 17.5 3 14 3 10 V5.5 Z" fill="currentColor"/></svg>
+      </div>
+      <div class="guarantee-text">
+        <h2>Under 1 GPG, or the install is free.</h2>
+        <p>We size every system to your home's exact hardness reading and household size. As long as that sizing is correct and you keep the salt tank filled, your water will test under 1 grain per gallon — guaranteed. If it doesn't, we refund the full install. No fine print, no hoops.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1241,7 +1621,7 @@
 
         <div class="book-label">Your number</div>
         <div class="book-phone-row">
-          <input type="text" id="bookPhone" placeholder="(214) 555-0123" inputmode="tel">
+          <input type="text" id="bookPhone" placeholder="(214) 555-0123" inputmode="tel" aria-label="Your phone number">
           <button class="book-confirm" onclick="confirmBooking()">Confirm call</button>
         </div>
         <div class="book-error" id="bookError">Pick a day, a time, and enter a phone number.</div>
@@ -1354,7 +1734,7 @@
         <div class="service-card-body">
           <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12 H10 M14 12 H19 M10 12 C10 9 14 9 14 12 C14 15 10 15 10 12 Z"/></svg></div>
           <h3>Code &amp; Permit Compliance</h3>
-          <p>Backflow preventers and permits pulled on every main-line tie-in — built into the flat price, not billed as a surprise later.</p>
+          <p>Required safety valves and permits are pulled on every install that connects to your main water line — built into the flat price, never billed as a surprise later.</p>
           <a href="#pricing" class="sc-link">See packages</a>
         </div>
       </div>
@@ -1462,7 +1842,7 @@
       <ul class="trust-list">
         <li><strong>No commission-driven upsells.</strong> Techs install what you booked — the price doesn't change once someone's in your house.</li>
         <li><strong>One visit for most jobs.</strong> Essential and Complete packages are typically same-day installs.</li>
-        <li><strong>Licensed &amp; permitted.</strong> Main-line tie-ins are pulled with proper permits — every time, no exceptions.</li>
+        <li><strong>Licensed &amp; permitted.</strong> Any install that connects to your main water line is properly permitted — every time, no exceptions.</li>
       </ul>
     </div>
   </div>
@@ -1547,6 +1927,10 @@
     </div>
     <div style="max-width:700px;">
       <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">What's the actual difference between a softener, a filter, and an RO system?<span class="plus">+</span></div>
+        <div class="faq-a">A <strong>softener</strong> removes the hardness minerals (calcium and magnesium) that cause scale buildup and dry skin — it treats your whole house. A <strong>carbon filter</strong> removes chlorine taste and smell, also whole-house. A <strong>reverse osmosis (RO) system</strong> is a separate, more thorough filter just for drinking and cooking water at one faucet. Most homes only need a softener; the other two are add-ons if taste or drinking water quality matter to you too.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
         <div class="faq-q">Why don't you offer a free in-home water test?<span class="plus">+</span></div>
         <div class="faq-a">Because it's usually a sales visit, not a real test. City water hardness is already public record — we use that plus a short quiz to size your system accurately without putting a rep in your kitchen.</div>
       </div>
@@ -1574,7 +1958,7 @@
   <div class="wrap">
     <div class="section-head">
       <h2>Ready for a flat price, not a pitch?</h2>
-      <p>Call, text, or use the ZIP tool above — either way, you'll have a package and a price before anyone sets foot in your home.</p>
+      <p>Call or use the ZIP tool above — either way, you'll have a package and a price before anyone sets foot in your home.</p>
     </div>
     <div class="hero-flags">
       <span class="flag">(214) 555-0199</span>
@@ -1589,9 +1973,10 @@
     <div>
       <div class="flogo">Water Cowboys</div>
       <p class="fdesc">Flat-rate water softening, filtration, and drinking-water systems across Dallas–Fort Worth. No in-home sales visit, ever.</p>
+      <p class="fdesc" style="margin-top:10px;">Already a customer? Refer a friend — you both get $50 when they install.</p>
     </div>
     <div>
-      <h4>Packages</h4>
+      <h3>Packages</h3>
       <ul>
         <li><a href="#pricing">Starter — $799</a></li>
         <li><a href="#pricing">Essential — $2,599</a></li>
@@ -1600,7 +1985,7 @@
       </ul>
     </div>
     <div>
-      <h4>Service area</h4>
+      <h3>Service area</h3>
       <ul>
         <li><a href="#">Dallas County</a></li>
         <li><a href="#">Tarrant County</a></li>
@@ -1610,9 +1995,9 @@
       </ul>
     </div>
     <div>
-      <h4>Company</h4>
+      <h3>Company</h3>
       <ul>
-        <li><a href="#process">How it works</a></li>
+        <li><a href="how-it-works.html">How it works</a></li>
         <li><a href="blog/index.html">Blog</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -1626,6 +2011,28 @@
 </footer>
 
 <script>
+  // Real validation — strips formatting and checks actual digit count for
+  // phone (must be a genuine 10-digit US number, optionally with a leading
+  // country code 1) and a standard email pattern. The previous phone regex
+  // only checked character count, so "-------" (seven hyphens, zero digits)
+  // would incorrectly pass — this replaces that everywhere it's used.
+  function isValidPhone(phone) {
+    const digits = (phone || '').replace(/\D/g, '');
+    return digits.length === 10 || (digits.length === 11 && digits[0] === '1');
+  }
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test((email || '').trim());
+  }
+
+  // Mobile nav — the hamburger menu that replaces the old broken behavior
+  // where nav links just vanished below 860px with no way to reach them.
+  function toggleMobileNav() {
+    const nav = document.getElementById('mobileNav');
+    const btn = document.getElementById('hamburgerBtn');
+    const isOpen = nav.classList.toggle('show');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
+
   // Water hardness by ZIP, grouped by actual city/water-utility service area.
   // Anchor cities (Dallas, Plano, Frisco, Fort Worth, Arlington, Irving, McKinney, Denton)
   // use figures matched to published municipal reports. Surrounding suburbs are
@@ -1812,7 +2219,7 @@
 
   function confirmBooking() {
     const phone = document.getElementById('bookPhone').value.trim();
-    const phoneValid = /^[\d\s\-\(\)\+]{7,}$/.test(phone);
+    const phoneValid = isValidPhone(phone);
     const errorEl = document.getElementById('bookError');
 
     if (!selectedDay || !selectedTime || !phoneValid) {
@@ -1842,6 +2249,7 @@
   }
 
   buildDayRow();
+  initConsentBanner();
 
   // Package buttons on pricing cards scroll to the existing ZIP tool
   // panel and carry the package choice through to the gate submission,
@@ -1878,16 +2286,28 @@
   function submitGate() {
     const phone = document.getElementById('gatePhone').value.trim();
     const email = document.getElementById('gateEmail').value.trim();
+    const name = document.getElementById('gateName').value.trim();
     const errorEl = document.getElementById('gateError');
+    const formatErrorEl = document.getElementById('gateFormatError');
 
-    const phoneValid = /^[\d\s\-\(\)\+]{7,}$/.test(phone);
-    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const phoneEntered = phone.length > 0;
+    const emailEntered = email.length > 0;
+    const phoneValid = isValidPhone(phone);
+    const emailValid = isValidEmail(email);
 
-    if (!phoneValid && !emailValid) {
+    errorEl.classList.remove('show');
+    formatErrorEl.classList.remove('show');
+
+    if (!phoneEntered && !emailEntered) {
       errorEl.classList.add('show');
       return;
     }
-    errorEl.classList.remove('show');
+    if (!phoneValid && !emailValid) {
+      // Something was typed, but it's not a real phone number or email —
+      // e.g. "-------" or a typo'd address. Don't silently accept garbage.
+      formatErrorEl.classList.add('show');
+      return;
+    }
 
     // Fire "tool completed" conversion event — this is the mid-funnel event
     // the retargeting audience (ZIP tool ads → retargeting ads) is built from.
@@ -1900,7 +2320,7 @@
     fetch('/api/submit-lead', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ phone, email, zip: zipForSubmit, source: 'main-site-gate', package: selectedPackageForGate || undefined })
+      body: JSON.stringify({ name: name || undefined, phone, email, zip: zipForSubmit, source: 'main-site-gate', package: selectedPackageForGate || undefined })
     }).catch(function(err) { console.error('Lead submission failed:', err); });
 
     document.getElementById('gateBlock').classList.remove('show');
@@ -1924,14 +2344,6 @@
     document.getElementById('cityName').textContent = entry.city;
     document.getElementById('gpgVal').textContent = entry.gpg;
     document.querySelector('#hardDesc').innerHTML = '<span class="warn-icon">⚠</span>' + result.label + ' water';
-    document.getElementById('impactText').textContent = result.impact;
-
-    const pct = Math.min(entry.gpg / 20, 1);
-    const circumference = 226;
-    document.getElementById('gaugeArc').style.strokeDashoffset = circumference - (circumference * pct);
-    document.getElementById('gaugeArc').style.stroke = result.danger ? '#B3261E' : '#9C5A2A';
-    document.getElementById('gaugeNum').textContent = entry.gpg;
-    document.getElementById('gaugeNum').style.fill = result.danger ? '#8C1D17' : '#16232A';
 
     const readoutCard = document.getElementById('readoutCard');
     readoutCard.classList.toggle('danger', result.danger);
