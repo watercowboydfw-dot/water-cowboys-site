@@ -178,7 +178,8 @@
       </div>
       <div class="gate show" style="border-top:1px dashed var(--line); margin-top:20px;" id="gateBlock">
         <div class="gate-copy">Want this emailed to you, plus your recommended package?</div>
-        <div class="gate-field"><label for="gateEmail">Email (optional)</label><input type="text" class="gate-input" id="gateEmail" placeholder="you@email.com" inputmode="email"></div>
+        <div style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true"><label for="gateWebsite">Leave this field blank</label><input type="text" id="gateWebsite" name="website" tabindex="-1" autocomplete="off"></div>
+      <div class="gate-field"><label for="gateEmail">Email (optional)</label><input type="text" class="gate-input" id="gateEmail" placeholder="you@email.com" inputmode="email"></div>
         <button class="gate-submit" onclick="submitGate()">Email me my report</button>
       </div>
       <a href="water-cowboys.html#pricing" class="cta-final">See flat-rate pricing</a>
@@ -336,11 +337,15 @@
     }
     // No gate in this variant — the ZIP submission itself is the "tool completed" event.
     if (typeof gtag === 'function') gtag('event', 'zip_tool_completed', { variant: 'B_nogate' });
+    if (typeof fbq === 'function') fbq('track', 'Lead', { variant: 'B_nogate' });
     if (typeof fbq === 'function') fbq('trackCustom', 'ZipToolCompleted', { variant: 'B_nogate' });
     revealResult();
   }
 
   function submitGate() {
+    const honeypot = document.getElementById('gateWebsite');
+    if (honeypot && honeypot.value.trim() !== '') { return; }
+
     const email = document.getElementById('gateEmail').value.trim();
     const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
     if (!emailValid) { return; }

@@ -172,6 +172,7 @@
     <div class="gate" id="gateBlock">
       <div class="gate-copy">Enter your email to see your result.</div>
       <div class="gate-error" id="gateError">Enter a valid email to continue.</div>
+      <div style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true"><label for="gateWebsite">Leave this field blank</label><input type="text" id="gateWebsite" name="website" tabindex="-1" autocomplete="off"></div>
       <div class="gate-field"><label for="gateEmail">Email</label><input type="text" class="gate-input" id="gateEmail" placeholder="you@email.com" inputmode="email"></div>
       <button class="gate-submit" onclick="submitGate()">Show my result</button>
     </div>
@@ -340,12 +341,16 @@
   }
 
   function submitGate() {
+    const honeypot = document.getElementById('gateWebsite');
+    if (honeypot && honeypot.value.trim() !== '') { return; }
+
     const email = document.getElementById('gateEmail').value.trim();
     const errorEl = document.getElementById('gateError');
     const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
     if (!emailValid) { errorEl.classList.add('show'); return; }
     errorEl.classList.remove('show');
     if (typeof gtag === 'function') gtag('event', 'zip_tool_completed', { variant: 'C_singlefield' });
+    if (typeof fbq === 'function') fbq('track', 'Lead', { variant: 'C_singlefield' });
     if (typeof fbq === 'function') fbq('trackCustom', 'ZipToolCompleted', { variant: 'C_singlefield' });
     const zipForSubmitC = document.getElementById('zipInput').value.trim();
     fetch('/api/submit-lead', {

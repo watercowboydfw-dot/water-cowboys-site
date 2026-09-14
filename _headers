@@ -1,0 +1,10 @@
+# Security headers — applies to every page on the site.
+# Netlify reads this file automatically from the repo root; no other setup needed.
+# Reference: https://docs.netlify.com/routing/headers/
+
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), microphone=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains

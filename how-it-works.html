@@ -143,6 +143,21 @@
   .pain-item h3 { font-size: 19px; margin-bottom: 8px; }
   .pain-item p { font-size: 15px; color: var(--slate); }
   .pain-item .stat { display: inline-block; margin-top: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; color: var(--danger-dark); background: var(--danger-tint); padding: 4px 10px; border-radius: 100px; }
+
+  /* TOTAL COST CALLOUT */
+  .total-cost-callout {
+    display: flex; align-items: center; gap: 32px;
+    background: var(--denim-dark);
+    border-radius: 12px;
+    padding: 34px 38px;
+    margin-top: 34px;
+  }
+  .tcc-num { font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: 52px; color: var(--white); line-height: 1; flex-shrink: 0; }
+  .tcc-num .tcc-plus { font-size: 30px; color: #E8A97A; }
+  .tcc-text h3 { color: var(--white); font-size: 19px; margin-bottom: 8px; }
+  .tcc-text p { color: #C9D6DC; font-size: 14.5px; }
+  .tcc-text p strong { color: var(--white); }
+  @media (max-width: 640px) { .total-cost-callout { flex-direction: column; text-align: center; padding: 28px; } }
   @media (max-width: 640px) { .pain-item { grid-template-columns: 1fr; } .pain-icon { margin-bottom: 6px; } }
 
   /* HOW IT WORKS - tech cards */
@@ -360,6 +375,14 @@
           <h3>Appliance warranties — the one most people don't know about</h3>
           <p>Many dishwasher and tankless water heater manufacturers specify hardness limits directly in their warranty terms — commonly requiring water under 7 gpg, with coverage often void entirely above 10-12 gpg. At DFW's regional average, a lot of homes are technically already outside those terms without realizing it.</p>
           <span class="stat">Warranty coverage often void entirely above 10-12 gpg</span>
+        </div>
+      </div>
+
+      <div class="total-cost-callout">
+        <div class="tcc-num">$800<span class="tcc-plus">+</span></div>
+        <div class="tcc-text">
+          <h3>What this actually adds up to, per year</h3>
+          <p>Add up the five things above — extra energy for water heating, extra soap and detergent, faster appliance wear, and plumbing service calls — and independent research (Water Quality Research Foundation-funded studies) puts the typical cost at around <strong>$800 a year</strong> for an average hard-water household. Some industry estimates run higher, up to $1,000+ a year, depending on household size and how hard your specific water actually is. Either way: it's a real, ongoing cost, not a one-time inconvenience — and it's the same math whether or not anyone ever mentions it to you.</p>
         </div>
       </div>
 

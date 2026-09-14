@@ -212,6 +212,31 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
 
+  /* Skip-to-content link — invisible until a keyboard user tabs to it,
+     then appears clearly so they don't have to tab through the whole
+     header/nav on every single page load to reach the actual content. */
+  .skip-link {
+    position: absolute; top: -60px; left: 12px; z-index: 999;
+    background: var(--denim-dark); color: var(--white);
+    padding: 12px 20px; border-radius: 6px;
+    font-family: 'Inter', sans-serif; font-weight: 700; font-size: 14px;
+    text-decoration: none;
+    transition: top 0.2s ease;
+  }
+  .skip-link:focus { top: 12px; }
+
+  /* Respect visitors who've asked their OS/browser to reduce motion —
+     disables all animations and smooth-scroll site-wide, not just one spot. */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
   body {
     background: var(--paper);
     color: var(--ink);
@@ -1062,6 +1087,23 @@
   .guarantee-text p { color: #C9D6DC; font-size: 15px; max-width: 640px; }
   @media (max-width: 640px) { .guarantee-box { flex-direction: column; padding: 26px; } }
 
+  /* PAYBACK CALLOUT */
+  .payback-callout {
+    display: flex; align-items: center; gap: 28px;
+    background: var(--good-tint);
+    border: 1px solid rgba(76,122,82,0.25);
+    border-left: 4px solid var(--good);
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin-top: 24px;
+  }
+  .pb-num { font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: 40px; color: var(--good); line-height: 1; flex-shrink: 0; }
+  .pb-num .pb-plus { font-size: 24px; }
+  .pb-text h2 { font-size: 18px; color: var(--ink); margin-bottom: 8px; }
+  .pb-text p { font-size: 14.5px; color: var(--slate); }
+  .pb-text p strong { color: var(--ink); }
+  @media (max-width: 640px) { .payback-callout { flex-direction: column; text-align: center; border-left: none; border-top: 4px solid var(--good); } }
+
   /* IDEAL GPG CALLOUT (pricing section) */
   .ideal-callout {
     display: flex; align-items: center; gap: 26px;
@@ -1136,6 +1178,8 @@
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <div class="topbar">
   <div class="wrap">
     <a href="tel:+12145550199">(214) 555-0199 · Call now</a>
@@ -1187,7 +1231,7 @@
   </div>
 </header>
 
-<section class="hero" style="border-top:none;">
+<section class="hero" id="main-content" style="border-top:none;">
   <div class="wrap">
     <div class="hero-top">
       <h1 class="headline">Hard water is quietly wrecking your home. <span class="accent">We fix it, straight up.</span></h1>
@@ -1255,6 +1299,11 @@
         <div class="gate-copy">Enter a phone or email and we'll show your exact reading plus the flat-rate package built for your home.</div>
         <div class="gate-error" id="gateError">Enter a phone number or email to continue.</div>
         <div class="gate-error" id="gateFormatError">That doesn't look like a valid phone number or email — double check it.</div>
+        <!-- Honeypot spam trap — invisible to real visitors, bots often fill every field blindly -->
+        <div style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true">
+          <label for="gateWebsite">Leave this field blank</label>
+          <input type="text" id="gateWebsite" name="website" tabindex="-1" autocomplete="off">
+        </div>
         <div class="gate-field">
           <label for="gateName">Name <span style="font-weight:400; opacity:0.65;">(optional)</span></label>
           <input type="text" class="gate-input" id="gateName" placeholder="Jane Smith">
@@ -1348,6 +1397,14 @@
       </div>
       <div class="panel-footnote">Your reading is pulled from your city's published water report — the same data a "free in-home test" would just be re-confirming.</div>
     </div>
+    </div>
+
+    <div class="payback-callout">
+      <div class="pb-num">$800<span class="pb-plus">+</span></div>
+      <div class="pb-text">
+        <h2>These systems pay for themselves</h2>
+        <p>Hard water quietly costs the average household around <strong>$800 a year</strong> — extra energy for water heating, extra soap and detergent, faster appliance wear, and plumbing repairs. At that rate, <strong>Essential pays for itself in about 3 years, Complete in 5, Ultimate in about 5.5</strong> — and these systems are built to run well past a decade. Everything after that is money you simply stop losing.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1481,17 +1538,6 @@
       <p>Every package below is a flat, all-in installed price — the same price whether your job takes three hours or five. What you see is what you pay.</p>
     </div>
 
-    <div class="ideal-callout">
-      <div class="ideal-callout-num">
-        <span class="ideal-num">0-2</span>
-        <span class="ideal-label">gpg is the real target</span>
-      </div>
-      <div class="ideal-callout-text">
-        <h3>Why we target under 1 gpg, not just "soft"</h3>
-        <p>Most water treatment companies stop once you're technically "soft" — under 3.5 gpg. We don't. Many dishwasher and tankless water heater <strong>manufacturers specify hardness limits directly in their warranty terms, often requiring under 7 gpg</strong> and voiding coverage above 10-12 gpg. At DFW's regional average of 12-13 gpg, a lot of homes are already operating outside those terms. Every system we install targets under 1 gpg — real margin, not just squeaking by.</p>
-      </div>
-    </div>
-
     <div class="price-grid">
       <div class="price-card" id="card-starter">
         <span class="rec-tag" id="rec-starter">Add-on pick</span>
@@ -1554,6 +1600,17 @@
     <div class="flat-note">
       <svg viewBox="0 0 20 20" fill="none"><path d="M10 2 L17 5.5 V10 C17 14 14 17.5 10 18.5 C6 17.5 3 14 3 10 V5.5 Z" fill="currentColor"/></svg>
       Flat-rate guarantee: the price on this page is the price on your invoice. Permits and code-required parts for your package are already built in.
+    </div>
+
+    <div class="ideal-callout">
+      <div class="ideal-callout-num">
+        <span class="ideal-num">0-2</span>
+        <span class="ideal-label">gpg is the real target</span>
+      </div>
+      <div class="ideal-callout-text">
+        <h3>Why we target under 1 gpg, not just "soft"</h3>
+        <p>Most water treatment companies stop once you're technically "soft" — under 3.5 gpg. We don't. Many dishwasher and tankless water heater <strong>manufacturers specify hardness limits directly in their warranty terms, often requiring under 7 gpg</strong> and voiding coverage above 10-12 gpg. At DFW's regional average of 12-13 gpg, a lot of homes are already operating outside those terms. Every system we install targets under 1 gpg — real margin, not just squeaking by.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1623,6 +1680,10 @@
         <div class="book-phone-row">
           <input type="text" id="bookPhone" placeholder="(214) 555-0123" inputmode="tel" aria-label="Your phone number">
           <button class="book-confirm" onclick="confirmBooking()">Confirm call</button>
+        </div>
+        <div style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true">
+          <label for="bookWebsite">Leave this field blank</label>
+          <input type="text" id="bookWebsite" name="website" tabindex="-1" autocomplete="off">
         </div>
         <div class="book-error" id="bookError">Pick a day, a time, and enter a phone number.</div>
       </div>
@@ -2005,7 +2066,7 @@
     </div>
   </div>
   <div class="wrap footer-bottom">
-    <span>© 2026 Water Cowboys · Dallas–Fort Worth, TX · <a href="privacy-policy.html" style="color:inherit;">Privacy Policy</a></span>
+    <span>© 2026 Water Cowboys · Dallas–Fort Worth, TX · <a href="privacy-policy.html" style="color:inherit;">Privacy Policy</a> · <a href="terms-and-conditions.html" style="color:inherit;">Terms &amp; Conditions</a></span>
     <span>Hardness data sourced from published municipal water reports</span>
   </div>
 </footer>
@@ -2218,6 +2279,10 @@
   }
 
   function confirmBooking() {
+    // Honeypot check — same pattern as submitGate above.
+    const honeypot = document.getElementById('bookWebsite');
+    if (honeypot && honeypot.value.trim() !== '') { return; }
+
     const phone = document.getElementById('bookPhone').value.trim();
     const phoneValid = isValidPhone(phone);
     const errorEl = document.getElementById('bookError');
@@ -2284,6 +2349,11 @@
   }
 
   function submitGate() {
+    // Honeypot check — if this hidden field has any value, silently abort.
+    // Real visitors never see or fill it; bots that auto-fill every field will.
+    const honeypot = document.getElementById('gateWebsite');
+    if (honeypot && honeypot.value.trim() !== '') { return; }
+
     const phone = document.getElementById('gatePhone').value.trim();
     const email = document.getElementById('gateEmail').value.trim();
     const name = document.getElementById('gateName').value.trim();
@@ -2311,7 +2381,12 @@
 
     // Fire "tool completed" conversion event — this is the mid-funnel event
     // the retargeting audience (ZIP tool ads → retargeting ads) is built from.
+    // Fires on BOTH pixels — Meta's own "Lead" standard event is the right
+    // one here (they just handed over phone/email), and it needs to exist
+    // for a "checked their water but didn't book" custom audience to be
+    // buildable in Meta Ads Manager at all, not just Google Ads.
     if (typeof gtag === 'function') gtag('event', 'zip_tool_completed', { method: phoneValid ? 'phone' : 'email' });
+    if (typeof fbq === 'function') fbq('track', 'Lead', { method: phoneValid ? 'phone' : 'email' });
     if (typeof fbq === 'function') fbq('trackCustom', 'ZipToolCompleted');
 
     // Send the lead to Close CRM via our secure Netlify function.
