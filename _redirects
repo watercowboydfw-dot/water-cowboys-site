@@ -1,0 +1,4 @@
+# Serve the homepage at the bare root domain.
+# Without this, watercowboysdfw.com (with nothing after it) 404s,
+# because the actual homepage file is named water-cowboys.html, not index.html.
+/    /water-cowboys.html   200
