@@ -8,13 +8,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>How Water Treatment Actually Works | Water Cowboys</title>
 <meta name="description" content="What's actually in DFW tap water, what it does to your home, and how softening, carbon filtration & RO really fix it — no sales pitch, just real science.">
-<link rel="canonical" href="https://www.watercowboys.com/how-it-works.html">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Ccircle cx='15' cy='15' r='13' fill='%23F5F6F4' stroke='%232C5872' stroke-width='2'/%3E%3Cpath d='M15 6 L17.2 12.2 L23.8 12.2 L18.5 16 L20.5 22.2 L15 18.4 L9.5 22.2 L11.5 16 L6.2 12.2 L12.8 12.2 Z' fill='%239C5A2A'/%3E%3C/svg%3E">
+<link rel="canonical" href="https://watercowboysdfw.com/how-it-works.html">
+<link rel="icon" type="image/png" href="favicon-icon.png">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="How Water Treatment Actually Works | Water Cowboys">
 <meta property="og:description" content="What's really in DFW tap water, what it does to your home, and how each type of treatment actually fixes it.">
-<meta property="og:url" content="https://www.watercowboys.com/how-it-works.html">
+<meta property="og:url" content="https://watercowboysdfw.com/how-it-works.html">
+<meta property="og:site_name" content="Water Cowboys">
+<meta property="og:image" content="https://watercowboysdfw.com/hero-photo-utility-room.jpg">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How Water Treatment Actually Works | Water Cowboys">
+<meta name="twitter:description" content="What's really in DFW tap water, what it does to your home, and how each type of treatment actually fixes it.">
 
 <script type="application/ld+json">
 {
@@ -22,9 +29,9 @@
   "@type": "Article",
   "headline": "How Water Treatment Actually Works",
   "description": "A real explanation of what's in DFW tap water, what it does to your home, and how softening, carbon filtration, and reverse osmosis fix it.",
-  "url": "https://www.watercowboys.com/how-it-works.html",
+  "url": "https://watercowboysdfw.com/how-it-works.html",
   "author": { "@type": "Organization", "name": "Water Cowboys" },
-  "publisher": { "@type": "Organization", "name": "Water Cowboys", "url": "https://www.watercowboys.com/" }
+  "publisher": { "@type": "Organization", "name": "Water Cowboys", "url": "https://watercowboysdfw.com/" }
 }
 </script>
 
@@ -33,8 +40,8 @@
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.watercowboys.com/" },
-    { "@type": "ListItem", "position": 2, "name": "How It Works", "item": "https://www.watercowboys.com/how-it-works.html" }
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://watercowboysdfw.com/" },
+    { "@type": "ListItem", "position": 2, "name": "How It Works", "item": "https://watercowboysdfw.com/how-it-works.html" }
   ]
 }
 </script>
@@ -51,21 +58,21 @@
       "position": 1,
       "name": "Check your water",
       "text": "Enter your ZIP to see your area's published hardness reading, then answer two quick questions about your home.",
-      "url": "https://www.watercowboys.com/water-cowboys.html#zipToolPanel"
+      "url": "https://watercowboysdfw.com/water-cowboys.html#zipToolPanel"
     },
     {
       "@type": "HowToStep",
       "position": 2,
       "name": "Pick your flat-rate package",
-      "text": "Four packages, four prices — set before you call. We'll tell you which one fits, but the price never moves once you're in a room with us.",
-      "url": "https://www.watercowboys.com/water-cowboys.html#pricing"
+      "text": "Three packages, three prices — set before you call. We'll tell you which one fits, but the price never moves once you're in a room with us.",
+      "url": "https://watercowboysdfw.com/water-cowboys.html#pricing"
     },
     {
       "@type": "HowToStep",
       "position": 3,
       "name": "Install day",
       "text": "A licensed technician installs your system, tests every connection, and walks you through how it runs — done in a single visit for most homes.",
-      "url": "https://www.watercowboys.com/water-cowboys.html#book-call"
+      "url": "https://watercowboysdfw.com/water-cowboys.html#book-call"
     }
   ]
 }
@@ -82,6 +89,17 @@
   html { scroll-behavior: smooth; }
   body { background: var(--paper); color: var(--ink); font-family: 'Inter', sans-serif; line-height: 1.6; }
   .wrap { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+  /* Skip-to-content link */
+  .skip-link {
+    position: absolute; top: -60px; left: 12px; z-index: 999;
+    background: var(--denim-dark); color: var(--white);
+    padding: 12px 20px; border-radius: 6px;
+    font-family: 'Inter', sans-serif; font-weight: 700; font-size: 14px;
+    text-decoration: none;
+    transition: top 0.2s ease;
+  }
+  .skip-link:focus { top: 12px; }
   h1, h2, h3 { font-family: 'Fraunces', serif; font-weight: 700; letter-spacing: -0.01em; }
   a { color: inherit; }
 
@@ -91,18 +109,16 @@
 
   header { background: var(--white); border-bottom: 1px solid var(--line); }
   header .wrap { display: flex; align-items: center; justify-content: space-between; padding: 16px 28px; gap: 14px; }
-  .logo { display: flex; align-items: center; gap: 10px; font-family: 'Fraunces', serif; font-weight: 800; font-size: 24px; text-decoration: none; }
-  .logo-mark { width: 30px; height: 30px; }
-  .logo-mark svg { width: 100%; height: 100%; }
-  nav { display: flex; align-items: center; gap: 26px; }
-  nav a { font-size: 14.5px; font-weight: 600; color: var(--slate); text-decoration: none; }
+  .logo { display: flex; align-items: center; gap: 10px; font-family: 'Fraunces', serif; font-weight: 800; font-size: 24px; text-decoration: none; }  nav { display: flex; align-items: center; gap: 26px; }
+  nav a { font-size: 14.5px; font-weight: 600; color: var(--slate); text-decoration: none; margin-right: 26px; }
+  nav a:last-child { margin-right: 0; }
   nav a:hover { color: var(--denim); }
   nav a.active { color: var(--denim); }
   .nav-cta { background: var(--leather); color: var(--white) !important; padding: 10px 18px; border-radius: 4px; font-weight: 700; text-decoration: none; font-size: 14.5px; }
-  @media (max-width: 860px) { nav { display: none; } }
+  @media (max-width: 1150px) { nav { display: none; } }
   .hamburger { display: none; background: none; border: none; cursor: pointer; width: 40px; height: 40px; align-items: center; justify-content: center; color: var(--ink); flex-shrink: 0; }
   .hamburger svg { width: 24px; height: 24px; }
-  @media (max-width: 860px) { .hamburger { display: flex; } }
+  @media (max-width: 1150px) { .hamburger { display: flex; } }
   .mobile-nav { display: none; flex-direction: column; background: var(--white); border-top: 1px solid var(--line); padding: 8px 28px 20px; }
   .mobile-nav.show { display: flex; }
   .mobile-nav a { padding: 13px 0; font-size: 15.5px; font-weight: 600; color: var(--slate); text-decoration: none; border-bottom: 1px solid var(--line); }
@@ -194,6 +210,14 @@
     display: flex; align-items: center; justify-content: center;
     color: var(--slate); font-size: 12px; font-weight: 600; text-align: center; padding: 16px;
   }
+  .equip-photo-real {
+    height: 200px;
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    padding: 18px;
+  }
+  .equip-photo-real img { max-width: 100%; max-height: 100%; object-fit: contain; }
   .equip-card-body { padding: 18px 20px; }
   .equip-card h3 { font-size: 17px; margin-bottom: 6px; }
   .equip-card p { font-size: 13px; color: var(--slate); }
@@ -239,43 +263,38 @@
 </head>
 <body>
 
-<div class="topbar"><div class="wrap"><a href="tel:+12145550199">(214) 555-0199 · Call now</a><span>Flat-rate pricing · No in-home sales visit</span></div></div>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="topbar"><div class="wrap"><a href="tel:+13462607401">(346) 260-7401 · Call now</a><span>Flat-rate pricing · No in-home sales visit</span></div></div>
 
 <header>
   <div class="wrap">
     <a href="water-cowboys.html" class="logo">
-      <span class="logo-mark">
-        <svg viewBox="0 0 30 30" fill="none">
-          <circle cx="15" cy="15" r="13" stroke="#2C5872" stroke-width="2"/>
-          <path d="M15 6 L17.2 12.2 L23.8 12.2 L18.5 16 L20.5 22.2 L15 18.4 L9.5 22.2 L11.5 16 L6.2 12.2 L12.8 12.2 Z" fill="#9C5A2A"/>
-        </svg>
-      </span>
-      Water Cowboys
-    </a>
+      <img src="logo-full.png" alt="Water Cowboys — Cleaner Water, Brighter Homes" style="height: 42px; width: auto;"></a>
     <nav>
-      <a href="water-cowboys.html#process">Process</a>
       <a href="water-cowboys.html#pricing">Pricing</a>
       <a href="water-cowboys.html#services">Services</a>
       <a href="how-it-works.html" class="active">How It Works</a>
+      <a href="service-areas.html">Service Areas</a>
       <a href="blog-index.html">Blog</a>
       <a href="water-cowboys.html#faq">FAQ</a>
     </nav>
-    <a href="water-cowboys.html#pricing" class="nav-cta" id="headerCta">Get My Water Report</a>
+    <a href="water-cowboys.html#main-content" class="nav-cta" id="headerCta">Free Instant Water Report</a>
     <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileNav()" aria-label="Open menu" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
     </button>
   </div>
   <div class="mobile-nav" id="mobileNav">
-    <a href="water-cowboys.html#process" onclick="toggleMobileNav()">Process</a>
     <a href="water-cowboys.html#pricing" onclick="toggleMobileNav()">Pricing</a>
     <a href="water-cowboys.html#services" onclick="toggleMobileNav()">Services</a>
     <a href="how-it-works.html">How It Works</a>
+    <a href="service-areas.html">Service Areas</a>
     <a href="blog-index.html">Blog</a>
     <a href="water-cowboys.html#faq" onclick="toggleMobileNav()">FAQ</a>
   </div>
 </header>
 
-<div class="hero">
+<div class="hero" id="main-content">
   <div class="wrap">
     <div class="breadcrumb"><a href="water-cowboys.html">Home</a> / How It Works</div>
     <h1 class="headline">What's actually in your water, and what actually fixes it.</h1>
@@ -286,7 +305,7 @@
       <span class="flag">No sales visit required</span>
     </div>
     <div style="margin-top: 26px; display: flex; gap: 14px; flex-wrap: wrap;">
-      <a href="water-cowboys.html#pricing" class="cta-btn">Check my water first</a>
+      <a href="water-cowboys.html#main-content" class="cta-btn">Check my water first</a>
       <a href="#the-fixes" class="cta-btn secondary">Skip to the fixes</a>
     </div>
   </div>
@@ -436,32 +455,32 @@
     <div class="section-head">
       <div class="eyebrow">What we install</div>
       <h2>The actual equipment</h2>
-      <p>Brand and model specifics for each system, once finalized.</p>
+      <p>Real brands, real specs — not a generic house label.</p>
     </div>
     <div class="equip-notice">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
-      <p><strong>This section is a placeholder.</strong> Once our equipment supplier relationships are finalized, this section will show the exact brand, model, and specs for each system we install — real resin capacity, real flow rates, real warranty terms. For now, here's the category of equipment each package includes.</p>
+      <p><strong>This is the real equipment we install</strong> — every spec below is the actual manufacturer number, not a rounded estimate. Factory warranty: 5 years on the control valve, 7 years on the media tank, 5 years on the ion exchange media, 3 years on the carbon media.</p>
     </div>
     <div class="equip-grid">
       <div class="equip-card">
-        <div class="equip-photo">Softener system photo — coming soon</div>
+        <div class="equip-photo-real"><img src="equipment-softener.jpg" alt="HydroSpring whole-home water softener system"></div>
         <div class="equip-card-body">
-          <h3>Whole-Home Softener</h3>
-          <p>Ion exchange system, sized to household size and water hardness. Model/brand details coming soon.</p>
+          <h3>HydroSpring Softener</h3>
+          <p>48,000-grain softening capacity. Valve flow rate 36 GPM, system flow rate 28 GPM — sized to keep water pressure steady even when several fixtures are running at once.</p>
         </div>
       </div>
       <div class="equip-card">
-        <div class="equip-photo">Carbon filter photo — coming soon</div>
+        <div class="equip-photo-real"><img src="equipment-carbon-filter.jpg" alt="Whole-home catalytic carbon filtration system"></div>
         <div class="equip-card-body">
-          <h3>Catalytic Carbon Filter</h3>
-          <p>Whole-home chlorine/chloramine reduction. Model/brand details coming soon.</p>
+          <h3>Whole-Home Carbon Filter</h3>
+          <p>10 GPM flow rate through 42 lbs of carbon granules. Removes chlorine and chloramine taste/odor at every tap in the house, not just the kitchen sink.</p>
         </div>
       </div>
       <div class="equip-card">
-        <div class="equip-photo">RO system photo — coming soon</div>
+        <div class="equip-photo-real"><img src="equipment-ro-system.jpg" alt="IntelliClear reverse osmosis drinking water system with faucet"></div>
         <div class="equip-card-body">
-          <h3>Reverse Osmosis System</h3>
-          <p>Under-sink drinking water filtration. Model/brand details coming soon.</p>
+          <h3>IntelliClear RO System</h3>
+          <p>Tankless — no bulky storage tank under your sink. Filters down to 0.0001 microns with a coconut carbon post-filter for taste, plus an auto-flush cycle that keeps the membrane from clogging over time.</p>
         </div>
       </div>
     </div>
@@ -565,8 +584,8 @@
       <div class="process-step">
         <div class="step-mark">2</div>
         <h3>Pick your flat-rate package</h3>
-        <p>Four packages, four prices — set before you call. We'll tell you which one fits, but the price never moves once you're in a room with us.</p>
-        <a href="water-cowboys.html#pricing" class="step-btn">See the 4 packages</a>
+        <p>Three packages, three prices — set before you call. We'll tell you which one fits, but the price never moves once you're in a room with us.</p>
+        <a href="water-cowboys.html#pricing" class="step-btn">See the 3 packages</a>
       </div>
       <div class="process-step">
         <div class="step-mark">3</div>
@@ -588,9 +607,8 @@
       <h3>Packages</h3>
       <ul>
         <li><a href="water-cowboys.html#pricing">Starter — $799</a></li>
-        <li><a href="water-cowboys.html#pricing">Essential — $2,599</a></li>
-        <li><a href="water-cowboys.html#pricing">Complete — $3,999</a></li>
-        <li><a href="water-cowboys.html#pricing">Ultimate — $4,499</a></li>
+        <li><a href="water-cowboys.html#pricing">Essential — $2,499</a></li>
+        <li><a href="water-cowboys.html#pricing">Complete — $2,699</a></li>
       </ul>
     </div>
     <div>
@@ -604,7 +622,6 @@
     <div>
       <h3>Company</h3>
       <ul>
-        <li><a href="water-cowboys.html#process">Our process</a></li>
         <li><a href="water-cowboys.html#contact">Contact</a></li>
         <li><a href="privacy-policy.html">Privacy Policy</a></li>
       </ul>

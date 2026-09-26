@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Page Not Found | Water Cowboys</title>
 <meta name="robots" content="noindex">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Ccircle cx='15' cy='15' r='13' fill='%23F5F6F4' stroke='%232C5872' stroke-width='2'/%3E%3Cpath d='M15 6 L17.2 12.2 L23.8 12.2 L18.5 16 L20.5 22.2 L15 18.4 L9.5 22.2 L11.5 16 L6.2 12.2 L12.8 12.2 Z' fill='%239C5A2A'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="favicon-icon.png">
 <style>
   :root {
     --ink: #16232A; --slate: #435868; --denim: #2C5872; --denim-dark: #17324A;
@@ -18,14 +18,22 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--paper); color: var(--ink); font-family: 'Inter', sans-serif; line-height: 1.6; }
   .wrap { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+
+  /* Skip-to-content link */
+  .skip-link {
+    position: absolute; top: -60px; left: 12px; z-index: 999;
+    background: var(--denim-dark); color: var(--white);
+    padding: 12px 20px; border-radius: 6px;
+    font-family: 'Inter', sans-serif; font-weight: 700; font-size: 14px;
+    text-decoration: none;
+    transition: top 0.2s ease;
+  }
+  .skip-link:focus { top: 12px; }
   h1, h2 { font-family: 'Fraunces', serif; font-weight: 700; letter-spacing: -0.01em; }
 
   header { background: var(--white); border-bottom: 1px solid var(--line); }
   header .wrap { display: flex; align-items: center; justify-content: space-between; padding: 16px 28px; }
   .logo { display: flex; align-items: center; gap: 10px; font-family: 'Fraunces', serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
-  .logo-mark { width: 28px; height: 28px; }
-  .logo-mark svg { width: 100%; height: 100%; }
-
   .content { padding: 90px 0; text-align: center; }
   .code { font-family: 'IBM Plex Mono', 'Inter', monospace; font-weight: 700; font-size: 90px; color: var(--leather); line-height: 1; margin-bottom: 10px; }
   h1 { font-size: clamp(26px, 4vw, 34px); margin-bottom: 14px; }
@@ -49,16 +57,16 @@
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <header>
   <div class="wrap">
     <a href="water-cowboys.html" class="logo">
-      <span class="logo-mark"><svg viewBox="0 0 30 30" fill="none"><circle cx="15" cy="15" r="13" stroke="#2C5872" stroke-width="2"/><path d="M15 6 L17.2 12.2 L23.8 12.2 L18.5 16 L20.5 22.2 L15 18.4 L9.5 22.2 L11.5 16 L6.2 12.2 L12.8 12.2 Z" fill="#9C5A2A"/></svg></span>
-      Water Cowboys
-    </a>
+      <img src="logo-full.png" alt="Water Cowboys — Cleaner Water, Brighter Homes" style="height: 42px; width: auto;"></a>
   </div>
 </header>
 
-<div class="content">
+<div class="content" id="main-content">
   <div class="wrap">
     <div class="code">404</div>
     <h1>This page dried up.</h1>
@@ -83,7 +91,7 @@
 </div>
 
 <footer>
-  <div class="wrap">© 2026 Water Cowboys · <a href="water-cowboys.html">watercowboys.com</a></div>
+  <div class="wrap">© 2026 Water Cowboys · <a href="water-cowboys.html">watercowboysdfw.com</a></div>
 </footer>
 
 </body>

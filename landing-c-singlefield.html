@@ -9,24 +9,48 @@
 <title>Check Your DFW Water Hardness | Water Cowboys</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Free 15-second water hardness check for Dallas-Fort Worth. No home visit required.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Ccircle cx='15' cy='15' r='13' fill='%23F5F6F4' stroke='%232C5872' stroke-width='2'/%3E%3Cpath d='M15 6 L17.2 12.2 L23.8 12.2 L18.5 16 L20.5 22.2 L15 18.4 L9.5 22.2 L11.5 16 L6.2 12.2 L12.8 12.2 Z' fill='%239C5A2A'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="favicon-icon.png">
 <!-- ============================================================
      AD TRACKING — CONSENT-GATED. Do not load unconditionally.
      Current CA CIPA case law (2026) targets pixels that fire
      before consent — see main site notes for detail. Only loads
      after the visitor clicks Accept on the consent banner.
-     TODO: replace G-XXXXXXXXXX / XXXXXXXXXXXXXXX with real IDs.
+     GA4 Measurement ID is real and live (G-B20F1YT8JR). TODO: replace 28454292200872575 with the real Meta Pixel ID.
      ============================================================ -->
 <script>
+  // UTM capture — see main site for the full explanation. Ensures Close CRM
+  // knows which specific ad campaign/ad set drove this lead, not just which
+  // page it landed on.
+  function captureUtmParams() {
+    var params = new URLSearchParams(window.location.search);
+    var utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+    var found = {};
+    var hasAny = false;
+    utmKeys.forEach(function(key) {
+      var val = params.get(key);
+      if (val) { found[key] = val; hasAny = true; }
+    });
+    if (hasAny) {
+      sessionStorage.setItem('wc_utm_params', JSON.stringify(found));
+    }
+  }
+  function getStoredUtmParams() {
+    try {
+      var raw = sessionStorage.getItem('wc_utm_params');
+      return raw ? JSON.parse(raw) : {};
+    } catch (e) { return {}; }
+  }
+  captureUtmParams();
+
   function loadGoogleTag() {
     var s = document.createElement("script");
     s.async = true;
-    s.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX";
+    s.src = "https://www.googletagmanager.com/gtag/js?id=G-B20F1YT8JR";
     document.head.appendChild(s);
     window.dataLayer = window.dataLayer || [];
     window.gtag = function(){ dataLayer.push(arguments); };
     gtag("js", new Date());
-    gtag("config", "G-XXXXXXXXXX");
+    gtag("config", "G-B20F1YT8JR");
   }
   function loadMetaPixel() {
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -34,7 +58,7 @@
     n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
     document,"script","https://connect.facebook.net/en_US/fbevents.js");
-    fbq("init", "XXXXXXXXXXXXXXX");
+    fbq("init", "28454292200872575");
     fbq("track", "PageView");
   }
   function acceptTracking() {
@@ -62,13 +86,21 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--paper); color: var(--ink); font-family: 'Inter', sans-serif; line-height: 1.55; }
   .wrap { max-width: 620px; margin: 0 auto; padding: 0 24px; }
+
+  /* Skip-to-content link */
+  .skip-link {
+    position: absolute; top: -60px; left: 12px; z-index: 999;
+    background: var(--denim-dark); color: var(--white);
+    padding: 12px 20px; border-radius: 6px;
+    font-family: 'Inter', sans-serif; font-weight: 700; font-size: 14px;
+    text-decoration: none;
+    transition: top 0.2s ease;
+  }
+  .skip-link:focus { top: 12px; }
   h1, h2 { font-family: 'Fraunces', serif; font-weight: 700; letter-spacing: -0.01em; }
 
   header { padding: 22px 0; text-align: center; }
   .logo { display: inline-flex; align-items: center; gap: 10px; font-family: 'Fraunces', serif; font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; }
-  .logo-mark { width: 28px; height: 28px; }
-  .logo-mark svg { width: 100%; height: 100%; }
-
   .hero { padding: 20px 0 10px; text-align: center; }
   h1 { font-size: clamp(28px, 5vw, 38px); line-height: 1.08; margin-bottom: 14px; }
   .hero p.sub { font-size: 16px; color: var(--slate); max-width: 460px; margin: 0 auto; }
@@ -130,6 +162,7 @@
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <div class="consent-banner" id="consentBanner">
   <div class="consent-inner">
     <p>We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By clicking "Accept," you consent to our use of cookies. See our <a href="privacy-policy.html">Privacy Policy</a>.</p>
@@ -144,14 +177,12 @@
 <header>
   <div class="wrap">
     <a href="#" class="logo">
-      <span class="logo-mark"><svg viewBox="0 0 30 30" fill="none"><circle cx="15" cy="15" r="13" stroke="#2C5872" stroke-width="2"/><path d="M15 6 L17.2 12.2 L23.8 12.2 L18.5 16 L20.5 22.2 L15 18.4 L9.5 22.2 L11.5 16 L6.2 12.2 L12.8 12.2 Z" fill="#9C5A2A"/></svg></span>
-      Water Cowboys
-    </a>
+      <img src="logo-full.png" alt="Water Cowboys — Cleaner Water, Brighter Homes" style="height: 42px; width: auto;"></a>
   </div>
 </header>
 
 <div class="wrap">
-  <div class="hero">
+  <div class="hero" id="main-content">
     <h1>Check your DFW water hardness in 15 seconds</h1>
     <p class="sub">Public utility data, not a home visit. See your exact number, free.</p>
   </div>
@@ -189,7 +220,7 @@
   </div>
 </div>
 
-<footer>Water Cowboys · Dallas-Fort Worth, TX · (214) 555-0199 · <a href="privacy-policy.html" style="color:inherit;">Privacy Policy</a></footer>
+<footer>Water Cowboys · Dallas-Fort Worth, TX · (346) 260-7401 · <a href="privacy-policy.html" style="color:inherit;">Privacy Policy</a></footer>
 
 <script>
   const data = {
@@ -356,7 +387,7 @@
     fetch('/api/submit-lead', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, zip: zipForSubmitC, source: 'landing-c-singlefield' })
+      body: JSON.stringify({ email, zip: zipForSubmitC, source: 'landing-c-singlefield', utm: getStoredUtmParams() })
     }).catch(function(err) { console.error('Lead submission failed:', err); });
     document.getElementById('gateBlock').classList.remove('show');
     revealResult();

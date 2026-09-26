@@ -7,9 +7,21 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog | Water Cowboys, Dallas-Fort Worth</title>
-<link rel="canonical" href="https://www.watercowboys.com/blog/">
+<link rel="canonical" href="https://watercowboysdfw.com/blog/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Water Cowboys">
+<meta property="og:title" content="Blog | Water Cowboys, Dallas-Fort Worth">
+<meta property="og:description" content="Straight answers on hard water, softener costs, and what actually works in DFW homes — from the team that skips the sales pitch.">
+<meta property="og:url" content="https://watercowboysdfw.com/blog/">
+<meta property="og:image" content="https://watercowboysdfw.com/hero-photo-utility-room.jpg">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog | Water Cowboys, Dallas-Fort Worth">
+<meta name="twitter:description" content="Straight answers on hard water, softener costs, and what actually works in DFW homes — from the team that skips the sales pitch.">
+
 <meta name="description" content="Straight answers on hard water, softener costs, and what actually works in DFW homes &#8212; from the team that skips the sales pitch.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Ccircle cx='15' cy='15' r='13' fill='%23FAF9F6' stroke='%232C5872' stroke-width='2'/%3E%3Cpath d='M15 6 L17.2 12.2 L23.8 12.2 L18.5 16 L20.5 22.2 L15 18.4 L9.5 22.2 L11.5 16 L6.2 12.2 L12.8 12.2 Z' fill='%23A9642F'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="favicon-icon.png">
 <style>
 
   :root {
@@ -20,6 +32,17 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--paper); color: var(--ink); font-family: 'Inter', sans-serif; line-height: 1.55; }
   .wrap { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+  /* Skip-to-content link */
+  .skip-link {
+    position: absolute; top: -60px; left: 12px; z-index: 999;
+    background: var(--denim-dark); color: var(--white);
+    padding: 12px 20px; border-radius: 6px;
+    font-family: 'Inter', sans-serif; font-weight: 700; font-size: 14px;
+    text-decoration: none;
+    transition: top 0.2s ease;
+  }
+  .skip-link:focus { top: 12px; }
   h1, h2, h3 { font-family: 'Fraunces', serif; font-weight: 700; letter-spacing: -0.01em; }
 
   .topbar { background: var(--denim-dark); color: var(--paper); font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; }
@@ -29,8 +52,6 @@
   header { background: var(--white); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 50; }
   header .wrap { display: flex; align-items: center; justify-content: space-between; padding: 16px 28px; }
   .logo { display: flex; align-items: center; gap: 10px; font-family: 'Fraunces', serif; font-weight: 800; font-size: 24px; color: var(--ink); text-decoration: none; }
-  .logo-mark { width: 30px; height: 30px; flex-shrink: 0; }
-  .logo-mark svg { width: 100%; height: 100%; }
   nav { display: flex; align-items: center; }
   nav a { font-size: 14.5px; font-weight: 600; color: var(--slate); text-decoration: none; margin-right: 26px; }
   nav a:last-child { margin-right: 0; }
@@ -38,11 +59,11 @@
   nav a:hover { color: var(--denim); }
   .nav-cta { background: var(--leather); color: var(--white) !important; padding: 10px 18px; border-radius: 4px; font-weight: 700 !important; }
   .nav-cta:hover { background: var(--leather-dark); color: var(--white) !important; }
-  @media (max-width: 860px) { nav { display: none; } }
+  @media (max-width: 1150px) { nav { display: none; } }
   header .wrap { gap: 14px; }
   .hamburger { display: none; background: none; border: none; cursor: pointer; width: 40px; height: 40px; align-items: center; justify-content: center; color: var(--ink); flex-shrink: 0; }
   .hamburger svg { width: 24px; height: 24px; }
-  @media (max-width: 860px) { .hamburger { display: flex; } }
+  @media (max-width: 1150px) { .hamburger { display: flex; } }
   .mobile-nav { display: none; flex-direction: column; background: var(--white); border-top: 1px solid var(--line); padding: 8px 28px 20px; }
   .mobile-nav.show { display: flex; }
   .mobile-nav a { padding: 13px 0; font-size: 15.5px; font-weight: 600; color: var(--slate); text-decoration: none; border-bottom: 1px solid var(--line); }
@@ -81,13 +102,68 @@
   footer a { color: #D9E2E6; text-decoration: none; font-size: 13.5px; }
   footer a:hover { color: var(--white); }
   .footer-bottom-note { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #93A6AD; }
+
+  .consent-banner {
+    display: none;
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 200;
+    background: var(--denim-dark);
+    box-shadow: 0 -4px 20px rgba(23,38,43,0.2);
+  }
+  .consent-banner.show { display: block; }
+  .consent-inner {
+    display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    padding: 16px 28px;
+    flex-wrap: wrap;
+  }
+  .consent-inner p { color: #C9D6DC; font-size: 13.5px; max-width: 640px; margin: 0; }
+  .consent-inner p a { color: var(--white); text-decoration: underline; }
+  .consent-buttons { display: flex; gap: 10px; flex-shrink: 0; }
+  .consent-decline {
+    background: transparent; border: 1px solid rgba(255,255,255,0.3); color: var(--white);
+    padding: 9px 16px; border-radius: 6px; font-size: 13.5px; font-weight: 600; cursor: pointer;
+    font-family: 'Inter', sans-serif;
+  }
+  .consent-decline:hover { border-color: var(--white); }
+  .consent-accept {
+    background: var(--leather); border: none; color: var(--white);
+    padding: 9px 18px; border-radius: 6px; font-size: 13.5px; font-weight: 700; cursor: pointer;
+    font-family: 'Inter', sans-serif;
+  }
+  .consent-accept:hover { background: var(--leather-dark); }
+  @media (max-width: 640px) { .consent-inner { flex-direction: column; align-items: flex-start; } }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Water Cowboys Blog",
+  "description": "Straight answers on hard water, softener costs, and what actually works in DFW homes.",
+  "url": "https://watercowboysdfw.com/blog/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Water Cowboys",
+    "url": "https://watercowboysdfw.com/"
+  }
+}
+</script>
 </head>
 <body>
 
+<div class="consent-banner" id="consentBanner">
+  <div class="wrap consent-inner">
+    <p>We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By clicking "Accept," you consent to our use of cookies. See our <a href="privacy-policy.html">Privacy Policy</a> for details.</p>
+    <div class="consent-buttons">
+      <button class="consent-decline" onclick="declineTracking()">Decline</button>
+      <button class="consent-accept" onclick="acceptTracking()">Accept</button>
+    </div>
+  </div>
+</div>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <div class="topbar">
   <div class="wrap">
-    <a href="tel:+12145550199">(214) 555-0199 · Call now</a>
+    <a href="tel:+13462607401">(346) 260-7401 · Call now</a>
     <span>Flat-rate pricing · No in-home sales visit</span>
   </div>
 </div>
@@ -95,28 +171,19 @@
 <header>
   <div class="wrap">
     <a href="water-cowboys.html" class="logo">
-      <span class="logo-mark">
-        <svg viewBox="0 0 30 30" fill="none">
-          <circle cx="15" cy="15" r="13" stroke="#2C5872" stroke-width="2"/>
-          <path d="M15 6 L17.2 12.2 L23.8 12.2 L18.5 16 L20.5 22.2 L15 18.4 L9.5 22.2 L11.5 16 L6.2 12.2 L12.8 12.2 Z" fill="#9C5A2A"/>
-        </svg>
-      </span>
-      Water Cowboys
-    </a>
+      <img src="logo-full.png" alt="Water Cowboys — Cleaner Water, Brighter Homes" style="height: 42px; width: auto;"></a>
     <nav>
-      <a href="water-cowboys.html#process">Process</a>
       <a href="water-cowboys.html#pricing">Pricing</a>
       <a href="water-cowboys.html#services">Services</a>
       <a href="blog-index.html" class="active">Blog</a>
       <a href="water-cowboys.html#faq">FAQ</a>
     </nav>
-    <a href="water-cowboys.html#contact" class="nav-cta">Get My Water Report</a>
+    <a href="water-cowboys.html#main-content" class="nav-cta">Free Instant Water Report</a>
     <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileNav()" aria-label="Open menu" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
     </button>
   </div>
   <div class="mobile-nav" id="mobileNav">
-    <a href="water-cowboys.html#process" onclick="toggleMobileNav()">Process</a>
     <a href="water-cowboys.html#pricing" onclick="toggleMobileNav()">Pricing</a>
     <a href="water-cowboys.html#services" onclick="toggleMobileNav()">Services</a>
     <a href="blog-index.html" class="active">Blog</a>
@@ -124,7 +191,7 @@
   </div>
 </header>
 
-<section class="blog-hero">
+<section class="blog-hero" id="main-content">
   <div class="wrap">
     <h1>Straight answers on hard water, DFW-style.</h1>
     <p>No sales pitch here either — just what actually works, what things cost, and how to tell if your home needs it.</p>
@@ -208,6 +275,23 @@
       </div>
     </a>
 
+    <a href="blog-well-water-dfw.html" class="post-card">
+      <div class="post-thumb">
+        <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+          <rect width="400" height="300" fill="#EBEDE9"/>
+          <circle cx="200" cy="150" r="70" fill="none" stroke="#2C5872" stroke-width="4"/>
+          <rect x="185" y="80" width="30" height="70" fill="#9C5A2A"/>
+          <text x="200" y="255" text-anchor="middle" font-family="IBM Plex Mono" font-size="13" fill="#435868">WELL WATER</text>
+        </svg>
+      </div>
+      <div class="post-body">
+        <div class="post-tag">Well Water</div>
+        <h2>Well Water Treatment in DFW: What's Actually Different</h2>
+        <p>No published hardness number to check, and issues like iron and sulfur that a standard softener won't touch on its own. Here's what's genuinely different about treating a well.</p>
+        <div class="post-meta"><span>Well Water</span><span class="dot"></span><span>5 min read</span></div>
+      </div>
+    </a>
+
   </div>
 </div>
 
@@ -222,6 +306,61 @@
     </div>
   </div>
 </footer>
+
+<script>
+  function loadGoogleTag() {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-B20F1YT8JR';
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){ dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', 'G-B20F1YT8JR');
+  }
+  function loadMetaPixel() {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '28454292200872575');
+    fbq('track', 'PageView');
+  }
+  function loadTrackingIfConsented() {
+    if (localStorage.getItem('wc_tracking_consent') === 'accepted') {
+      loadGoogleTag();
+      loadMetaPixel();
+    }
+  }
+  function acceptTracking() {
+    localStorage.setItem('wc_tracking_consent', 'accepted');
+    document.getElementById('consentBanner').classList.remove('show');
+    loadGoogleTag();
+    loadMetaPixel();
+  }
+  function declineTracking() {
+    localStorage.setItem('wc_tracking_consent', 'declined');
+    document.getElementById('consentBanner').classList.remove('show');
+  }
+  function initConsentBanner() {
+    var choice = localStorage.getItem('wc_tracking_consent');
+    if (choice === 'accepted') {
+      loadTrackingIfConsented();
+    } else if (choice !== 'declined') {
+      document.getElementById('consentBanner').classList.add('show');
+    }
+  }
+
+  function toggleMobileNav() {
+    const nav = document.getElementById('mobileNav');
+    const btn = document.getElementById('hamburgerBtn');
+    const isOpen = nav.classList.toggle('show');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
+
+  initConsentBanner();
+</script>
 
 </body>
 </html>
