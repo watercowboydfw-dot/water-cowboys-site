@@ -1646,8 +1646,8 @@
 <section id="book-call">
   <div class="wrap">
     <div class="section-head">
-      <h2>Not sure which package fits? Get someone on the phone.</h2>
-      <p>Our water experts know DFW plumbing and answer live — no hold music, no call center, no waiting for a callback.</p>
+      <h2 id="bookCallHeading">Not sure which package fits? Get someone on the phone.</h2>
+      <p id="bookCallSub">Our water experts know DFW plumbing and answer live — no hold music, no call center, no waiting for a callback.</p>
     </div>
 
     <div class="book-panel">
@@ -2228,7 +2228,8 @@
       body: JSON.stringify({
         phone: phone,
         source: 'booking-widget',
-        note: 'Requested callback: ' + selectedDay + ' at ' + selectedTime,
+        package: selectedPackageForGate || undefined,
+        note: 'Requested callback: ' + selectedDay + ' at ' + selectedTime + (selectedPackageForGate ? ' — package: ' + selectedPackageForGate : ''),
         utm: getStoredUtmParams()
       })
     }).catch(function(err) { console.error('Booking submission failed:', err); });
@@ -2247,10 +2248,12 @@
   let selectedPackageForGate = null;
   function selectPackageAndScroll(pkg) {
     selectedPackageForGate = pkg;
-    const panel = document.getElementById('zipToolPanel');
-    panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    const hint = document.getElementById('zipHint');
-    if (hint) hint.textContent = pkg + ' selected — enter your ZIP to continue';
+    const panel = document.getElementById('book-call');
+    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const heading = document.getElementById('bookCallHeading');
+    const sub = document.getElementById('bookCallSub');
+    if (heading) heading.textContent = "Let's get your " + pkg + " install on the calendar.";
+    if (sub) sub.textContent = "Call now or pick a time below — we'll confirm the " + pkg + " package and get you scheduled.";
   }
 
   // Fire a conversion event on any click-to-call link, site-wide.
