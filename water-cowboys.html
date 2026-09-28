@@ -740,7 +740,6 @@
     outline: none;
   }
   input.gate-input:focus { border-color: var(--denim); }
-  .gate-or { font-size: 11.5px; color: var(--slate); text-align: center; margin: 2px 0 10px; opacity: 0.7; }
   .gate-error {
     display: none;
     font-size: 12.5px; color: var(--danger);
@@ -1384,9 +1383,9 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11 V7 a4 4 0 0 1 8 0 v4"/></svg>
           Almost there
         </div>
-        <div class="gate-copy">Enter a phone or email and we'll show your exact reading plus the flat-rate package built for your home.</div>
-        <div class="gate-error" id="gateError">Enter a phone number or email to continue.</div>
-        <div class="gate-error" id="gateFormatError">That doesn't look like a valid phone number or email — double check it.</div>
+        <div class="gate-copy">Enter your phone number and we'll show your exact reading plus the flat-rate package built for your home.</div>
+        <div class="gate-error" id="gateError">Enter a phone number to continue.</div>
+        <div class="gate-error" id="gateFormatError">That doesn't look like a valid phone number — double check it.</div>
         <!-- Honeypot spam trap — invisible to real visitors, bots often fill every field blindly -->
         <div style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true">
           <label for="gateWebsite">Leave this field blank</label>
@@ -1399,11 +1398,6 @@
         <div class="gate-field">
           <label for="gatePhone">Phone</label>
           <input type="text" class="gate-input" id="gatePhone" placeholder="(214) 555-0123" inputmode="tel">
-        </div>
-        <div class="gate-or">or</div>
-        <div class="gate-field">
-          <label for="gateEmail">Email</label>
-          <input type="text" class="gate-input" id="gateEmail" placeholder="you@email.com" inputmode="email">
         </div>
         <button class="gate-submit" onclick="submitGate()">Show my results</button>
         <div class="gate-fine">No spam. Used only to send your results and answer questions about your quote.</div>
@@ -1996,17 +1990,14 @@
   }
   captureUtmParams();
 
-  // Real validation — strips formatting and checks actual digit count for
-  // phone (must be a genuine 10-digit US number, optionally with a leading
-  // country code 1) and a standard email pattern. The previous phone regex
-  // only checked character count, so "-------" (seven hyphens, zero digits)
-  // would incorrectly pass — this replaces that everywhere it's used.
+  // Real validation — strips formatting and checks actual digit count.
+  // Must be a genuine 10-digit US number, optionally with a leading
+  // country code 1. The previous phone regex only checked character
+  // count, so "-------" (seven hyphens, zero digits) would incorrectly
+  // pass — this replaces that everywhere it's used.
   function isValidPhone(phone) {
     const digits = (phone || '').replace(/\D/g, '');
     return digits.length === 10 || (digits.length === 11 && digits[0] === '1');
-  }
-  function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test((email || '').trim());
   }
 
   // Mobile nav — the hamburger menu that replaces the old broken behavior
@@ -2283,26 +2274,23 @@
     if (honeypot && honeypot.value.trim() !== '') { return; }
 
     const phone = document.getElementById('gatePhone').value.trim();
-    const email = document.getElementById('gateEmail').value.trim();
     const name = document.getElementById('gateName').value.trim();
     const errorEl = document.getElementById('gateError');
     const formatErrorEl = document.getElementById('gateFormatError');
 
     const phoneEntered = phone.length > 0;
-    const emailEntered = email.length > 0;
     const phoneValid = isValidPhone(phone);
-    const emailValid = isValidEmail(email);
 
     errorEl.classList.remove('show');
     formatErrorEl.classList.remove('show');
 
-    if (!phoneEntered && !emailEntered) {
+    if (!phoneEntered) {
       errorEl.classList.add('show');
       return;
     }
-    if (!phoneValid && !emailValid) {
-      // Something was typed, but it's not a real phone number or email —
-      // e.g. "-------" or a typo'd address. Don't silently accept garbage.
+    if (!phoneValid) {
+      // Something was typed, but it's not a real phone number —
+      // e.g. "-------". Don't silently accept garbage.
       formatErrorEl.classList.add('show');
       return;
     }
@@ -2310,11 +2298,11 @@
     // Fire "tool completed" conversion event — this is the mid-funnel event
     // the retargeting audience (ZIP tool ads → retargeting ads) is built from.
     // Fires on BOTH pixels — Meta's own "Lead" standard event is the right
-    // one here (they just handed over phone/email), and it needs to exist
-    // for a "checked their water but didn't book" custom audience to be
-    // buildable in Meta Ads Manager at all, not just Google Ads.
-    if (typeof gtag === 'function') gtag('event', 'zip_tool_completed', { method: phoneValid ? 'phone' : 'email' });
-    if (typeof fbq === 'function') fbq('track', 'Lead', { method: phoneValid ? 'phone' : 'email' });
+    // one here (they just handed over their phone number), and it needs to
+    // exist for a "checked their water but didn't book" custom audience to
+    // be buildable in Meta Ads Manager at all, not just Google Ads.
+    if (typeof gtag === 'function') gtag('event', 'zip_tool_completed', {});
+    if (typeof fbq === 'function') fbq('track', 'Lead', {});
     if (typeof fbq === 'function') fbq('trackCustom', 'ZipToolCompleted');
 
     // Send the lead to Close CRM via our secure Netlify function.
@@ -2323,7 +2311,7 @@
     fetch('/api/submit-lead', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: name || undefined, phone, email, zip: zipForSubmit, source: 'main-site-gate', package: selectedPackageForGate || undefined, utm: getStoredUtmParams() })
+      body: JSON.stringify({ name: name || undefined, phone, zip: zipForSubmit, source: 'main-site-gate', package: selectedPackageForGate || undefined, utm: getStoredUtmParams() })
     }).catch(function(err) { console.error('Lead submission failed:', err); });
 
     document.getElementById('gateBlock').classList.remove('show');
@@ -2383,9 +2371,6 @@
     if (e.key === 'Enter') openGate();
   });
   document.getElementById('gatePhone').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') submitGate();
-  });
-  document.getElementById('gateEmail').addEventListener('keydown', function(e) {
     if (e.key === 'Enter') submitGate();
   });
 </script>
