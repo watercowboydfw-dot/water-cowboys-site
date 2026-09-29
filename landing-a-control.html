@@ -15,7 +15,7 @@
      Current CA CIPA case law (2026) targets pixels that fire
      before consent — see main site notes for detail. Only loads
      after the visitor clicks Accept on the consent banner.
-     GA4 Measurement ID is real and live (G-B20F1YT8JR). TODO: replace 28454292200872575 with the real Meta Pixel ID.
+     GA4 Measurement ID is real and live (G-B20F1YT8JR). Meta Pixel ID is real and live (1079470261643162), from Erik.
      ============================================================ -->
 <script>
   // UTM capture — see main site for the full explanation. Ensures Close CRM
@@ -58,7 +58,7 @@
     n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
     document,"script","https://connect.facebook.net/en_US/fbevents.js");
-    fbq("init", "28454292200872575");
+    fbq("init", "1079470261643162");
     fbq("track", "PageView");
   }
   function acceptTracking() {
@@ -175,7 +175,7 @@
 
 <header>
   <div class="wrap">
-    <a href="#" class="logo">
+    <a href="/" class="logo">
       <img src="logo-full.png" alt="Water Cowboys — Cleaner Water, Brighter Homes" style="height: 42px; width: auto;"></a>
   </div>
 </header>
@@ -200,9 +200,10 @@
     <div class="hint" id="zipHint">Covers Dallas, Tarrant, Collin, Denton &amp; 6 more counties</div>
 
     <div class="gate" id="gateBlock">
-      <div class="gate-copy">Enter your phone number to see your result.</div>
+      <div class="gate-copy">Enter your name and phone number to see your result.</div>
       <div class="gate-error" id="gateError">Enter a phone number to continue.</div>
       <div style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true"><label for="gateWebsite">Leave this field blank</label><input type="text" id="gateWebsite" name="website" tabindex="-1" autocomplete="off"></div>
+      <div class="gate-field"><label for="gateName">Name</label><input type="text" class="gate-input" id="gateName" placeholder="Jane Smith"></div>
       <div class="gate-field"><label for="gatePhone">Phone</label><input type="text" class="gate-input" id="gatePhone" placeholder="(214) 555-0123" inputmode="tel"></div>
       <button class="gate-submit" onclick="submitGate()">Show my result</button>
     </div>
@@ -378,6 +379,7 @@
     const honeypot = document.getElementById('gateWebsite');
     if (honeypot && honeypot.value.trim() !== '') { return; }
 
+    const name = document.getElementById('gateName').value.trim();
     const phone = document.getElementById('gatePhone').value.trim();
     const errorEl = document.getElementById('gateError');
     const phoneEntered = phone.length > 0;
@@ -393,14 +395,14 @@
       return;
     }
     errorEl.classList.remove('show');
-    if (typeof gtag === 'function') gtag('event', 'zip_tool_completed', { variant: 'A_control' });
-    if (typeof fbq === 'function') fbq('track', 'Lead', { variant: 'A_control' });
-    if (typeof fbq === 'function') fbq('trackCustom', 'ZipToolCompleted', { variant: 'A_control' });
+    if (typeof gtag === 'function') gtag('event', 'zip_tool_completed', { source: 'landing-ads' });
+    if (typeof fbq === 'function') fbq('track', 'Lead', { source: 'landing-ads' });
+    if (typeof fbq === 'function') fbq('trackCustom', 'ZipToolCompleted', { source: 'landing-ads' });
     const zipForSubmit = document.getElementById('zipInput').value.trim();
     fetch('/api/submit-lead', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ phone, zip: zipForSubmit, source: 'landing-a-control', utm: getStoredUtmParams() })
+      body: JSON.stringify({ name: name || undefined, phone, zip: zipForSubmit, source: 'landing-ads', utm: getStoredUtmParams() })
     }).catch(function(err) { console.error('Lead submission failed:', err); });
     document.getElementById('gateBlock').classList.remove('show');
     revealResult();
@@ -418,6 +420,8 @@
 
   initConsentBanner();
   document.getElementById('zipInput').addEventListener('keydown', function(e) { if (e.key === 'Enter') openGate(); });
+  document.getElementById('gateName').addEventListener('keydown', function(e) { if (e.key === 'Enter') submitGate(); });
+  document.getElementById('gatePhone').addEventListener('keydown', function(e) { if (e.key === 'Enter') submitGate(); });
 </script>
 
 </body>
